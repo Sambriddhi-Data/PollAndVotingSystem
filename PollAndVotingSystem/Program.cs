@@ -11,7 +11,16 @@ using PollAndVotingSystem.Services;
 using PollAndVotingSystem.Services.Implementation;
 using PollAndVotingSystem.Services.Interfaces;
 
+using Serilog;
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("Logs/errors-.log", rollingInterval: RollingInterval.Day)
+    .WriteTo.Console()
+    .CreateLogger();
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog();
 
 // ---- Services ----
 builder.Services.AddControllers();
