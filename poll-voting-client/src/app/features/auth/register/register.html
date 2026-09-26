@@ -1,0 +1,33 @@
+<div class="auth-container">
+  <h2>Register</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input type="text" formControlName="name" />
+
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+
+    <label>Department</label>
+    <select formControlName="departmentId">
+      <option [value]="null" disabled>Select a department</option>
+      @for (d of departments(); track d.id) {
+        <option [value]="d.id">{{ d.name }}</option>
+      }
+    </select>
+
+    <label>Date Joined</label>
+    <input type="date" formControlName="dateJoined" />
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+
+    <button type="submit" [disabled]="form.invalid || isSubmitting()">
+      {{ isSubmitting() ? 'Creating account...' : 'Register' }}
+    </button>
+  </form>
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</div>

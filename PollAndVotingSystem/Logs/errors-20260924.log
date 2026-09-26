@@ -1,0 +1,99 @@
+2026-09-24 18:30:29.037 +05:45 [INF] User profile is available. Using 'C:\Users\samshrestha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-24 18:30:29.557 +05:45 [INF] Now listening on: http://localhost:5145
+2026-09-24 18:30:29.572 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-24 18:30:29.576 +05:45 [INF] Hosting environment: Development
+2026-09-24 18:30:29.584 +05:45 [INF] Content root path: C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem
+2026-09-24 18:31:02.363 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/ - null null
+2026-09-24 18:31:02.740 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-09-24 18:31:02.817 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/ - 404 0 null 465.8822ms
+2026-09-24 18:31:02.852 +05:45 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5145/, Response status code: 404
+2026-09-24 18:31:05.798 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger - null null
+2026-09-24 18:31:05.810 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger - 301 0 null 14.2507ms
+2026-09-24 18:31:05.819 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.html - null null
+2026-09-24 18:31:06.042 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.html - 200 null text/html;charset=utf-8 222.5955ms
+2026-09-24 18:31:06.060 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.css - null null
+2026-09-24 18:31:06.099 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - null null
+2026-09-24 18:31:06.128 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - null null
+2026-09-24 18:31:06.179 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.css - 200 152 text/css 119.3675ms
+2026-09-24 18:31:06.179 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - 200 26499 text/css 50.9876ms
+2026-09-24 18:31:06.195 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-24 18:31:06.205 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - 200 421507 text/javascript 106.107ms
+2026-09-24 18:31:06.205 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.js - null null
+2026-09-24 18:31:06.221 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - 200 77731 text/javascript 25.5385ms
+2026-09-24 18:31:06.225 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.js - 200 null application/javascript;charset=utf-8 19.1556ms
+2026-09-24 18:31:06.430 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - null null
+2026-09-24 18:31:06.809 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 379.2656ms
+2026-09-24 18:32:53.320 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/Departments - null null
+2026-09-24 18:32:53.360 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem)'
+2026-09-24 18:32:53.389 +05:45 [INF] Route matched with {action = "GetAll", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller PollAndVotingSystem.Controllers.DepartmentsController (PollAndVotingSystem).
+2026-09-24 18:32:53.404 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-24 18:32:55.481 +05:45 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [d].[Id], [d].[Name]
+FROM [Departments] AS [d]
+2026-09-24 18:32:55.542 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2130.1ms.
+2026-09-24 18:32:55.559 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[PollAndVotingSystem.Models.Department, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PollAndVotingSystem.DTOs.Department.DepartmentResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-24 18:32:55.602 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem) in 2205.0552ms
+2026-09-24 18:32:55.607 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem)'
+2026-09-24 18:32:55.623 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/Departments - 200 null application/json; charset=utf-8 2302.8388ms
+2026-09-24 18:52:24.709 +05:45 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5145/api/auth/login - null null
+2026-09-24 18:52:24.743 +05:45 [INF] CORS policy execution successful.
+2026-09-24 18:52:24.748 +05:45 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5145/api/auth/login - 204 null null 40.6625ms
+2026-09-24 18:52:24.760 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/login - application/json 53
+2026-09-24 18:52:24.773 +05:45 [INF] CORS policy execution successful.
+2026-09-24 18:52:24.781 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-24 18:52:24.807 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-24 18:52:24.868 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-24 18:52:25.544 +05:45 [INF] Executed DbCommand (62ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-24 18:52:25.865 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 992.745ms.
+2026-09-24 18:52:25.876 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-24 18:52:25.893 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 1081.8776ms
+2026-09-24 18:52:25.901 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-24 18:52:25.907 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/login - 200 null application/json; charset=utf-8 1146.7867ms
+2026-09-24 18:53:00.368 +05:45 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5145/api/auth/login - null null
+2026-09-24 18:53:00.373 +05:45 [INF] CORS policy execution successful.
+2026-09-24 18:53:00.375 +05:45 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5145/api/auth/login - 204 null null 8.1096ms
+2026-09-24 18:53:00.381 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/login - application/json 52
+2026-09-24 18:53:00.388 +05:45 [INF] CORS policy execution successful.
+2026-09-24 18:53:00.390 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-24 18:53:00.393 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-24 18:53:00.400 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-24 18:53:00.504 +05:45 [INF] Executed DbCommand (11ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-24 18:53:00.619 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 216.8921ms.
+2026-09-24 18:53:00.625 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-24 18:53:00.629 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 232.2944ms
+2026-09-24 18:53:00.634 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-24 18:53:00.638 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/login - 200 null application/json; charset=utf-8 256.4604ms
+2026-09-24 18:55:17.697 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.html - null null
+2026-09-24 18:55:17.707 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.html - 304 null null 10.1442ms
+2026-09-24 18:55:17.727 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - null null
+2026-09-24 18:55:17.730 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.css - null null
+2026-09-24 18:55:17.730 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - null null
+2026-09-24 18:55:17.736 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - 304 null null 8.6689ms
+2026-09-24 18:55:17.741 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.css - 304 null null 11.4514ms
+2026-09-24 18:55:17.757 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - 304 null null 26.9722ms
+2026-09-24 18:55:17.776 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-24 18:55:17.787 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.js - null null
+2026-09-24 18:55:17.801 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - 304 null null 25.435ms
+2026-09-24 18:55:17.814 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.js - 304 null null 26.982ms
+2026-09-24 18:55:18.018 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - null null
+2026-09-24 18:55:18.038 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 19.8739ms
+2026-09-24 18:55:23.710 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/departments - null null
+2026-09-24 18:55:23.716 +05:45 [INF] CORS policy execution successful.
+2026-09-24 18:55:23.719 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem)'
+2026-09-24 18:55:23.724 +05:45 [INF] Route matched with {action = "GetAll", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller PollAndVotingSystem.Controllers.DepartmentsController (PollAndVotingSystem).
+2026-09-24 18:55:23.729 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-24 18:55:23.796 +05:45 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [d].[Id], [d].[Name]
+FROM [Departments] AS [d]
+2026-09-24 18:55:23.800 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 68.3352ms.
+2026-09-24 18:55:23.804 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[PollAndVotingSystem.Models.Department, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PollAndVotingSystem.DTOs.Department.DepartmentResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-24 18:55:23.808 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem) in 79.3898ms
+2026-09-24 18:55:23.812 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.DepartmentsController.GetAll (PollAndVotingSystem)'
+2026-09-24 18:55:23.816 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/departments - 200 null application/json; charset=utf-8 106.0518ms
+2026-09-24 23:42:56.402 +05:45 [INF] Application is shutting down...

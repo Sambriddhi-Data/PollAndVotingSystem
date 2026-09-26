@@ -1,0 +1,19 @@
+<div class="auth-container">
+  <h2>Login</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+
+    <button type="submit" [disabled]="form.invalid || isSubmitting()">
+      {{ isSubmitting() ? 'Logging in...' : 'Login' }}
+    </button>
+  </form>
+  <p>Don't have an account? <a routerLink="/register">Register</a></p>
+</div>

@@ -34,6 +34,13 @@ namespace PollAndVotingSystem.Repositories
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
 
+        public async Task<List<Election>> GetAllAsync()
+        {
+            return await _context.Elections
+                .Include(e => e.Department)
+                .OrderByDescending(e => e.StartDate)
+                .ToListAsync();
+        }
         public async Task AddAsync(Election election)
         {
             await _context.Elections.AddAsync(election);

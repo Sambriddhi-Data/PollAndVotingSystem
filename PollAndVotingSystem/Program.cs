@@ -128,7 +128,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
@@ -136,7 +137,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
-// ---- Current user / Elections / Departments services ----
+// ---- services ----
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
@@ -145,10 +146,21 @@ builder.Services.AddScoped<IElectionRepository, ElectionRepository>();
 builder.Services.AddScoped<IElectionService, ElectionService>();
 builder.Services.AddScoped<ICandidateApplicationRepository, CandidateApplicationRepository>();
 builder.Services.AddScoped<ICandidateApplicationService, CandidateApplicationService>();
+builder.Services.AddScoped<IVoteRepository, VoteRepository>();
+builder.Services.AddScoped<IVoteService, VoteService>();
+builder.Services.AddScoped<IDelegationRepository, DelegationRepository>();
+builder.Services.AddScoped<IDelegationService, DelegationService>();
+
+builder.Services.AddScoped<IAuditLogRepository, AuditLogRepository>();
+builder.Services.AddScoped<IAuditLogService, AuditLogService>();
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+
+builder.Services.AddSignalR();
+builder.Services.AddHostedService<PollAndVotingSystem.BackgroundServices.ElectionMonitorService>();
 
 var app = builder.Build();
 
-// ---- Middleware pipeline ----
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -164,5 +176,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<PollAndVotingSystem.Hubs.ElectionResultsHub>("/hubs/election-results");
 
 app.Run();

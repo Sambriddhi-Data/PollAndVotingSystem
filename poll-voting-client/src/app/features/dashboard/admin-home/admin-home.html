@@ -1,0 +1,12 @@
+<div class="dashboard">
+  <header>
+    <h1>Admin Dashboard</h1>
+    <button (click)="logout()">Logout</button>
+  </header>
+  <p>Welcome, {{ auth()?.name }} (Department #{{ auth()?.departmentId }})</p>
+
+  <nav>
+    <a routerLink="/elections">Manage Elections</a>
+    <a routerLink="/elections/new">Create Election</a>
+  </nav>
+</div>

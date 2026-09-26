@@ -13,16 +13,19 @@ namespace PollAndVotingSystem.Services.Implementation;
         private readonly IUserRepository _userRepository;
         private readonly ICurrentUserService _currentUser;
 
+        private readonly IAuditLogService _auditLogService;
         public CandidateApplicationService(
             ICandidateApplicationRepository appRepository,
             IElectionRepository electionRepository,
             IUserRepository userRepository,
-            ICurrentUserService currentUser)
+            ICurrentUserService currentUser,
+            IAuditLogService auditLogService)
         {
             _appRepository = appRepository;
             _electionRepository = electionRepository;
             _userRepository = userRepository;
             _currentUser = currentUser;
+            _auditLogService = auditLogService;
         }
 
         public async Task<CandidateApplicationResponseDto> ApplyAsync(int electionId, ApplyRequestDto request)
@@ -99,6 +102,8 @@ namespace PollAndVotingSystem.Services.Implementation;
             await _appRepository.AddCandidateAsync(candidate);
             await _appRepository.SaveChangesAsync();
 
+            await _auditLogService.LogAsync(
+                _currentUser.UserId, "CandidateApplicationApproved", "CandidateApplication", application.Id);
             return MapToDto(application);
         }
 
@@ -116,7 +121,8 @@ namespace PollAndVotingSystem.Services.Implementation;
             application.RejectionReason = request.RejectionReason;
 
             await _appRepository.SaveChangesAsync();
-
+            await _auditLogService.LogAsync(
+                _currentUser.UserId, "CandidateApplicationRejected", "CandidateApplication", application.Id, request.RejectionReason);
             return MapToDto(application);
         }
 

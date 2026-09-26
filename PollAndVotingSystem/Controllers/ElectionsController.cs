@@ -28,105 +28,51 @@ namespace PollAndVotingSystem.Controllers;
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            try
-            {
-                return Ok(await _electionService.GetByIdAsync(id));
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                return Forbid();
-            }
+            return Ok(await _electionService.GetByIdAsync(id));
         }
 
         [HttpPost]
         [Authorize(Policy = Policies.RequireAdmin)]
         public async Task<IActionResult> Create(ElectionRequestDto request)
         {
-            try
-            {
                 var created = await _electionService.CreateAsync(request);
                 return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
         }
 
         [HttpPut("{id}")]
         [Authorize(Policy = Policies.RequireAdmin)]
         public async Task<IActionResult> Update(int id, ElectionRequestDto request)
         {
-            try
-            {
-                return Ok(await _electionService.UpdateAsync(id, request));
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
+            return Ok(await _electionService.UpdateAsync(id, request));
         }
 
         [HttpDelete("{id}")]
         [Authorize(Policy = Policies.RequireAdmin)]
         public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                await _electionService.DeleteAsync(id);
-                return NoContent();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
+            await _electionService.DeleteAsync(id);
+            return NoContent();
         }
         
         [HttpPut("{id}/activate")]
         [Authorize(Policy = Policies.RequireAdmin)]
         public async Task<IActionResult> Activate(int id)
         {
-            try
-            {
-                return Ok(await _electionService.ActivateAsync(id));
-            }
-            catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
-            catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
+            return Ok(await _electionService.ActivateAsync(id));
         }
 
         [HttpPut("{id}/close")]
         [Authorize(Policy = Policies.RequireAdmin)]
         public async Task<IActionResult> Close(int id)
         {
-            try
-            {
-                return Ok(await _electionService.CloseAsync(id));
-            }
-            catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
-            catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
+            return Ok(await _electionService.CloseAsync(id));
+            
         }
 
         [HttpPut("{id}/lock-override")]
         [Authorize(Policy = Policies.RequireAdmin)]
         public async Task<IActionResult> LockOverride(int id, [FromBody] string reason)
-        {
-            try
-            {
-                return Ok(await _electionService.LockOverrideAsync(id, reason));
-            }
-            catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
-            catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
+        { 
+            return Ok(await _electionService.LockOverrideAsync(id, reason)); 
         }
     }

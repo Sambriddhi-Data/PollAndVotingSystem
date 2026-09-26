@@ -18,6 +18,7 @@ namespace PollAndVotingSystem.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var departments = await _departmentRepository.GetAllAsync();

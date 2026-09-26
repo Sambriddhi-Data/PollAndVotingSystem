@@ -1,0 +1,11 @@
+<div class="dashboard">
+  <header>
+    <h1>My Dashboard</h1>
+    <button (click)="logout()">Logout</button>
+  </header>
+  <p>Welcome, {{ auth()?.name }}</p>
+
+  <nav>
+    <a routerLink="/elections">View Elections</a>
+  </nav>
+</div>

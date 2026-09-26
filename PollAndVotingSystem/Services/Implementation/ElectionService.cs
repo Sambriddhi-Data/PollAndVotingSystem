@@ -2,6 +2,7 @@
 using PollAndVotingSystem.DTOs.Election;
 using PollAndVotingSystem.Models;
 using PollAndVotingSystem.Repositories;
+using PollAndVotingSystem.Services.Interfaces;
 
 namespace PollAndVotingSystem.Services
 {
@@ -9,16 +10,22 @@ namespace PollAndVotingSystem.Services
     {
         private readonly IElectionRepository _electionRepository;
         private readonly IDepartmentRepository _departmentRepository;
+        private readonly IAuditLogService _auditLogService;
+        private readonly INotificationService _notificationService;
         private readonly ICurrentUserService _currentUser;
 
         public ElectionService(
             IElectionRepository electionRepository,
             IDepartmentRepository departmentRepository,
-            ICurrentUserService currentUser)
+            ICurrentUserService currentUser,
+            IAuditLogService auditLogService,
+            INotificationService notificationService)
         {
             _electionRepository = electionRepository;
             _departmentRepository = departmentRepository;
             _currentUser = currentUser;
+            _auditLogService = auditLogService;
+            _notificationService = notificationService;
         }
 
         public async Task<List<ElectionResponseDto>> GetElectionsForCurrentUserAsync()
@@ -133,7 +140,10 @@ namespace PollAndVotingSystem.Services
 
             _electionRepository.Update(election);
             await _electionRepository.SaveChangesAsync();
-
+            
+            await _auditLogService.LogAsync(_currentUser.UserId, "Election activated.","Election", election.Id);
+            await _notificationService.NotifyDepartmentAsync(election.Id,election.DepartmentId, "Started.",$"The election \"{election.Title}\" is now open for voting.");
+            
             return MapToDto(election);
         }
 
@@ -149,6 +159,8 @@ namespace PollAndVotingSystem.Services
 
             _electionRepository.Update(election);
             await _electionRepository.SaveChangesAsync();
+            
+            await _auditLogService.LogAsync(_currentUser.UserId, "Election closed.","Election", election.Id);
 
             return MapToDto(election);
         }
@@ -167,6 +179,7 @@ namespace PollAndVotingSystem.Services
             _electionRepository.Update(election);
             await _electionRepository.SaveChangesAsync();
 
+            await _auditLogService.LogAsync(_currentUser.UserId, "ElectionLockOverride.","Election", election.Id, reason);
             return MapToDto(election);
         }
     }

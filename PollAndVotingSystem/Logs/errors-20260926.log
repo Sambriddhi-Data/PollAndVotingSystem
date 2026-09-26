@@ -1,0 +1,1501 @@
+2026-09-26 06:40:26.899 +05:45 [INF] User profile is available. Using 'C:\Users\samshrestha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-26 06:40:27.246 +05:45 [INF] Now listening on: http://localhost:5145
+2026-09-26 06:40:27.254 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-26 06:40:27.259 +05:45 [INF] Hosting environment: Development
+2026-09-26 06:40:27.263 +05:45 [INF] Content root path: C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem
+2026-09-26 06:45:16.051 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/register - application/json 154
+2026-09-26 06:45:17.060 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-09-26 06:45:17.298 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem)'
+2026-09-26 06:45:17.418 +05:45 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(PollAndVotingSystem.DTOs.Auth.RegisterRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 06:45:17.764 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:45:26.814 +05:45 [INF] Executed DbCommand (287ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE LOWER([u].[Email]) = @ToLower) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:45:27.129 +05:45 [INF] Executed DbCommand (18ms) [Parameters=[@departmentId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]
+        WHERE [d].[Id] = @departmentId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:45:29.296 +05:45 [INF] Executed DbCommand (56ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([DateJoined], [DepartmentId], [Email], [Name], [PasswordHash], [Role], [TokenVersion])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 06:45:29.653 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 11847.7139ms.
+2026-09-26 06:45:29.709 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 06:45:29.821 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem) in 12344.4861ms
+2026-09-26 06:45:29.866 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem)'
+2026-09-26 06:45:30.017 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/register - 200 null application/json; charset=utf-8 13994.3529ms
+2026-09-26 06:46:00.162 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/register - application/json 154
+2026-09-26 06:46:00.292 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem)'
+2026-09-26 06:46:00.302 +05:45 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(PollAndVotingSystem.DTOs.Auth.RegisterRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 06:46:00.326 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:46:01.005 +05:45 [INF] Executed DbCommand (25ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE LOWER([u].[Email]) = @ToLower) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:46:01.043 +05:45 [INF] Executed DbCommand (7ms) [Parameters=[@departmentId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]
+        WHERE [d].[Id] = @departmentId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:46:01.742 +05:45 [INF] Executed DbCommand (41ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([DateJoined], [DepartmentId], [Email], [Name], [PasswordHash], [Role], [TokenVersion])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 06:46:01.788 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1449.7517ms.
+2026-09-26 06:46:01.806 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 06:46:01.823 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem) in 1505.0712ms
+2026-09-26 06:46:01.835 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem)'
+2026-09-26 06:46:01.848 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/register - 200 null application/json; charset=utf-8 1686.3512ms
+2026-09-26 06:46:32.993 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/register - application/json 154
+2026-09-26 06:46:33.044 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem)'
+2026-09-26 06:46:33.050 +05:45 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(PollAndVotingSystem.DTOs.Auth.RegisterRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 06:46:33.074 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:46:33.468 +05:45 [INF] Executed DbCommand (22ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE LOWER([u].[Email]) = @ToLower) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:46:33.511 +05:45 [INF] Executed DbCommand (10ms) [Parameters=[@departmentId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]
+        WHERE [d].[Id] = @departmentId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:46:34.335 +05:45 [INF] Executed DbCommand (32ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([DateJoined], [DepartmentId], [Email], [Name], [PasswordHash], [Role], [TokenVersion])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 06:46:34.354 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1269.2847ms.
+2026-09-26 06:46:34.368 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 06:46:34.381 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem) in 1315.3956ms
+2026-09-26 06:46:34.390 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Register (PollAndVotingSystem)'
+2026-09-26 06:46:34.400 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/register - 200 null application/json; charset=utf-8 1406.488ms
+2026-09-26 06:48:24.890 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/1/apply - application/json 70
+2026-09-26 06:48:25.886 +05:45 [INF] Executed DbCommand (28ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:48:25.998 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:48:26.042 +05:45 [INF] Route matched with {action = "Apply", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Apply(Int32, PollAndVotingSystem.DTOs.CandidateApplication.ApplyRequestDto) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 06:48:26.074 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:48:26.419 +05:45 [INF] Executed DbCommand (24ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 06:48:26.575 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 489.4813ms.
+2026-09-26 06:48:26.589 +05:45 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-26 06:48:26.635 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) in 578.8705ms
+2026-09-26 06:48:26.650 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:48:26.658 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/1/apply - 400 null application/json; charset=utf-8 1768.3087ms
+2026-09-26 06:48:59.569 +05:45 [INF] Request starting HTTP/1.1 PUT http://localhost:5145/api/elections/1/activate - application/json 0
+2026-09-26 06:48:59.604 +05:45 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/22/2026 9:24:40 AM', Current time (UTC): '9/26/2026 1:03:59 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-09-26 06:48:59.680 +05:45 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/22/2026 9:24:40 AM', Current time (UTC): '9/26/2026 1:03:59 AM'.
+2026-09-26 06:48:59.698 +05:45 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-09-26 06:48:59.726 +05:45 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-26 06:48:59.736 +05:45 [INF] Request finished HTTP/1.1 PUT http://localhost:5145/api/elections/1/activate - 401 0 null 167.0695ms
+2026-09-26 06:49:07.022 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/login - application/json 67
+2026-09-26 06:49:07.038 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 06:49:07.064 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 06:49:07.089 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:49:07.439 +05:45 [INF] Executed DbCommand (34ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 06:49:07.849 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 752.8229ms.
+2026-09-26 06:49:07.880 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 06:49:07.897 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 822.1016ms
+2026-09-26 06:49:07.928 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 06:49:07.952 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/login - 200 null application/json; charset=utf-8 930.7022ms
+2026-09-26 06:49:54.557 +05:45 [INF] Request starting HTTP/1.1 PUT http://localhost:5145/api/elections/1/activate - application/json 0
+2026-09-26 06:49:54.847 +05:45 [INF] Executed DbCommand (22ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:49:54.871 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Activate (PollAndVotingSystem)'
+2026-09-26 06:49:54.899 +05:45 [INF] Route matched with {action = "Activate", controller = "Elections"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Activate(Int32) on controller PollAndVotingSystem.Controllers.ElectionsController (PollAndVotingSystem).
+2026-09-26 06:49:54.916 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.ElectionsController.Activate (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:49:55.426 +05:45 [INF] Executed DbCommand (25ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+WHERE [e].[Id] = @id
+2026-09-26 06:49:55.539 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.ElectionsController.Activate (PollAndVotingSystem) in 628.7504ms
+2026-09-26 06:49:55.550 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Activate (PollAndVotingSystem)'
+2026-09-26 06:49:55.563 +05:45 [ERR] Unhandled exception on /api/elections/1/activate
+System.InvalidOperationException: Only Draft elections can be activated.
+   at PollAndVotingSystem.Services.ElectionService.ActivateAsync(Int32 id) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Services\Implementation\ElectionService.cs:line 129
+   at PollAndVotingSystem.Controllers.ElectionsController.Activate(Int32 id) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Controllers\ElectionsController.cs:line 61
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PollAndVotingSystem.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, ApplicationDbContext dbContext) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-09-26 06:49:56.153 +05:45 [INF] Executed DbCommand (27ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ErrorLogs] ([ExceptionType], [Message], [Path], [StackTrace], [StatusCode], [Timestamp], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 06:49:56.183 +05:45 [INF] Request finished HTTP/1.1 PUT http://localhost:5145/api/elections/1/activate - 400 null application/json 1625.72ms
+2026-09-26 06:52:26.972 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/elections/ - null null
+2026-09-26 06:52:27.296 +05:45 [INF] Executed DbCommand (24ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:52:27.311 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.ElectionsController.GetAll (PollAndVotingSystem)'
+2026-09-26 06:52:27.336 +05:45 [INF] Route matched with {action = "GetAll", controller = "Elections"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller PollAndVotingSystem.Controllers.ElectionsController (PollAndVotingSystem).
+2026-09-26 06:52:27.351 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.ElectionsController.GetAll (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:52:27.756 +05:45 [INF] Executed DbCommand (30ms) [Parameters=[@departmentId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+WHERE [e].[DepartmentId] = @departmentId
+ORDER BY [e].[StartDate] DESC
+2026-09-26 06:52:27.787 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.ElectionsController.GetAll (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 421.7582ms.
+2026-09-26 06:52:27.797 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PollAndVotingSystem.DTOs.Election.ElectionResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-26 06:52:27.850 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.ElectionsController.GetAll (PollAndVotingSystem) in 499.4426ms
+2026-09-26 06:52:27.861 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.ElectionsController.GetAll (PollAndVotingSystem)'
+2026-09-26 06:52:27.868 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/elections/ - 200 null application/json; charset=utf-8 896.2004ms
+2026-09-26 06:53:31.418 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/1/candidates - null null
+2026-09-26 06:53:31.735 +05:45 [INF] Executed DbCommand (25ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:53:31.748 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem)'
+2026-09-26 06:53:31.777 +05:45 [INF] Route matched with {action = "GetCandidates", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCandidates(Int32) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 06:53:31.791 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:53:32.175 +05:45 [INF] Executed DbCommand (36ms) [Parameters=[@electionId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [c].[Id], [c].[ApplicationId], [c].[ElectionId], [c].[UserId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion], [c0].[Id], [c0].[ElectionId], [c0].[RejectionReason], [c0].[ReviewedAt], [c0].[ReviewedByUserId], [c0].[Statement], [c0].[Status], [c0].[UserId]
+FROM [Candidates] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+INNER JOIN [CandidateApplications] AS [c0] ON [c].[ApplicationId] = [c0].[Id]
+WHERE [c].[ElectionId] = @electionId
+2026-09-26 06:53:32.344 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 544.7698ms.
+2026-09-26 06:53:32.357 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PollAndVotingSystem.DTOs.Candidate.CandidateResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-26 06:53:32.375 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem) in 585.818ms
+2026-09-26 06:53:32.386 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem)'
+2026-09-26 06:53:32.395 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/1/candidates - 200 null application/json; charset=utf-8 976.5613ms
+2026-09-26 06:54:09.708 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/elections - application/json 206
+2026-09-26 06:54:10.193 +05:45 [INF] Executed DbCommand (19ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:54:10.220 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 06:54:10.259 +05:45 [INF] Route matched with {action = "Create", controller = "Elections"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PollAndVotingSystem.DTOs.Election.ElectionRequestDto) on controller PollAndVotingSystem.Controllers.ElectionsController (PollAndVotingSystem).
+2026-09-26 06:54:10.311 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:54:10.623 +05:45 [INF] Executed DbCommand (20ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [d].[Id], [d].[Name]
+FROM [Departments] AS [d]
+WHERE [d].[Id] = @p
+2026-09-26 06:54:10.695 +05:45 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Elections] ([CreatedByUserId], [DepartmentId], [Description], [EndDate], [IsLocked], [MinTenureYears], [StartDate], [Status], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-09-26 06:54:10.719 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 397.8315ms.
+2026-09-26 06:54:10.729 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'PollAndVotingSystem.DTOs.Election.ElectionResponseDto'.
+2026-09-26 06:54:10.835 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem) in 558.5354ms
+2026-09-26 06:54:10.846 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 06:54:10.856 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/elections - 201 null application/json; charset=utf-8 1147.7867ms
+2026-09-26 06:55:26.043 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/1/apply - application/json 70
+2026-09-26 06:55:26.310 +05:45 [INF] Executed DbCommand (20ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:55:26.329 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:55:26.338 +05:45 [INF] Route matched with {action = "Apply", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Apply(Int32, PollAndVotingSystem.DTOs.CandidateApplication.ApplyRequestDto) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 06:55:26.374 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:55:26.419 +05:45 [INF] Executed DbCommand (11ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 06:55:26.440 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 50.8017ms.
+2026-09-26 06:55:26.464 +05:45 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-26 06:55:26.492 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) in 133.7889ms
+2026-09-26 06:55:26.510 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:55:26.522 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/1/apply - 400 null application/json; charset=utf-8 478.8831ms
+2026-09-26 06:55:33.683 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/2/apply - application/json 70
+2026-09-26 06:55:33.967 +05:45 [INF] Executed DbCommand (30ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:55:33.982 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:55:34.003 +05:45 [INF] Route matched with {action = "Apply", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Apply(Int32, PollAndVotingSystem.DTOs.CandidateApplication.ApplyRequestDto) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 06:55:34.016 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:55:34.042 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 06:55:34.389 +05:45 [INF] Executed DbCommand (29ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CandidateApplications] AS [c]
+        WHERE [c].[ElectionId] = @electionId AND [c].[UserId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:55:34.878 +05:45 [INF] Executed DbCommand (34ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CandidateApplications] ([ElectionId], [RejectionReason], [ReviewedAt], [ReviewedByUserId], [Statement], [Status], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 06:55:34.940 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 914.4497ms.
+2026-09-26 06:55:34.955 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.CandidateApplication.CandidateApplicationResponseDto'.
+2026-09-26 06:55:35.057 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) in 1041.2911ms
+2026-09-26 06:55:35.080 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:55:35.108 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/2/apply - 200 null application/json; charset=utf-8 1424.5054ms
+2026-09-26 06:56:13.605 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/2/apply - application/json 52
+2026-09-26 06:56:13.865 +05:45 [INF] Executed DbCommand (20ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 06:56:13.878 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:56:13.887 +05:45 [INF] Route matched with {action = "Apply", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Apply(Int32, PollAndVotingSystem.DTOs.CandidateApplication.ApplyRequestDto) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 06:56:13.902 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 06:56:13.927 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 06:56:13.968 +05:45 [INF] Executed DbCommand (16ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CandidateApplications] AS [c]
+        WHERE [c].[ElectionId] = @electionId AND [c].[UserId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 06:56:14.335 +05:45 [INF] Executed DbCommand (50ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CandidateApplications] ([ElectionId], [RejectionReason], [ReviewedAt], [ReviewedByUserId], [Statement], [Status], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 06:56:14.369 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 458.7546ms.
+2026-09-26 06:56:14.386 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.CandidateApplication.CandidateApplicationResponseDto'.
+2026-09-26 06:56:14.401 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) in 499.7082ms
+2026-09-26 06:56:14.414 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 06:56:14.423 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/2/apply - 200 null application/json; charset=utf-8 818.1643ms
+2026-09-26 07:34:04.242 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/2/apply - application/json 52
+2026-09-26 07:34:04.257 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 07:34:04.263 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 07:34:04.266 +05:45 [INF] Route matched with {action = "Apply", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Apply(Int32, PollAndVotingSystem.DTOs.CandidateApplication.ApplyRequestDto) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 07:34:04.271 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 07:34:04.282 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 07:34:04.287 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 13.5482ms.
+2026-09-26 07:34:04.292 +05:45 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-26 07:34:04.296 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem) in 25.6112ms
+2026-09-26 07:34:04.302 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Apply (PollAndVotingSystem)'
+2026-09-26 07:34:04.305 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/candidateapplications/election/2/apply - 400 null application/json; charset=utf-8 63.1154ms
+2026-09-26 07:34:55.506 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/2/candidates - null null
+2026-09-26 07:34:55.518 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 07:34:55.523 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem)'
+2026-09-26 07:34:55.526 +05:45 [INF] Route matched with {action = "GetCandidates", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCandidates(Int32) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 07:34:55.531 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 07:34:55.545 +05:45 [INF] Executed DbCommand (7ms) [Parameters=[@electionId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [c].[Id], [c].[ApplicationId], [c].[ElectionId], [c].[UserId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion], [c0].[Id], [c0].[ElectionId], [c0].[RejectionReason], [c0].[ReviewedAt], [c0].[ReviewedByUserId], [c0].[Statement], [c0].[Status], [c0].[UserId]
+FROM [Candidates] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+INNER JOIN [CandidateApplications] AS [c0] ON [c].[ApplicationId] = [c0].[Id]
+WHERE [c].[ElectionId] = @electionId
+2026-09-26 07:34:55.550 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 16.3042ms.
+2026-09-26 07:34:55.554 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PollAndVotingSystem.DTOs.Candidate.CandidateResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-26 07:34:55.560 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem) in 29.7196ms
+2026-09-26 07:34:55.564 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem)'
+2026-09-26 07:34:55.567 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/2/candidates - 200 null application/json; charset=utf-8 60.9975ms
+2026-09-26 08:07:24.004 +05:45 [INF] Request starting HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - application/json 0
+2026-09-26 08:07:24.013 +05:45 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/22/2026 9:24:40 AM', Current time (UTC): '9/26/2026 2:22:24 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-09-26 08:07:24.020 +05:45 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/22/2026 9:24:40 AM', Current time (UTC): '9/26/2026 2:22:24 AM'.
+2026-09-26 08:07:24.023 +05:45 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-09-26 08:07:24.026 +05:45 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-26 08:07:24.030 +05:45 [INF] Request finished HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - 401 0 null 25.9893ms
+2026-09-26 08:07:52.909 +05:45 [INF] Request starting HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - application/json 0
+2026-09-26 08:07:52.916 +05:45 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/26/2026 2:04:07 AM', Current time (UTC): '9/26/2026 2:22:52 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-09-26 08:07:52.921 +05:45 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/26/2026 2:04:07 AM', Current time (UTC): '9/26/2026 2:22:52 AM'.
+2026-09-26 08:07:52.923 +05:45 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-09-26 08:07:52.926 +05:45 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-26 08:07:52.929 +05:45 [INF] Request finished HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - 401 0 null 19.6411ms
+2026-09-26 08:08:41.859 +05:45 [INF] Request starting HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - application/json 0
+2026-09-26 08:08:41.865 +05:45 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/26/2026 2:04:07 AM', Current time (UTC): '9/26/2026 2:23:41 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-09-26 08:08:41.871 +05:45 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/26/2026 2:04:07 AM', Current time (UTC): '9/26/2026 2:23:41 AM'.
+2026-09-26 08:08:41.873 +05:45 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-09-26 08:08:41.875 +05:45 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-26 08:08:41.877 +05:45 [INF] Request finished HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - 401 0 null 18.4919ms
+2026-09-26 08:08:56.523 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/login - application/json 67
+2026-09-26 08:08:56.528 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:08:56.532 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 08:08:56.536 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:08:56.551 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 08:08:56.659 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 120.2868ms.
+2026-09-26 08:08:56.665 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 08:08:56.668 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 132.8935ms
+2026-09-26 08:08:56.674 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:08:56.677 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/login - 200 null application/json; charset=utf-8 154.2507ms
+2026-09-26 08:09:31.634 +05:45 [INF] Request starting HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - application/json 0
+2026-09-26 08:09:31.650 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:09:31.655 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem)'
+2026-09-26 08:09:31.668 +05:45 [INF] Route matched with {action = "Approve", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Approve(Int32) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 08:09:31.672 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:09:31.717 +05:45 [INF] Executed DbCommand (7ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [c].[Id], [c].[ElectionId], [c].[RejectionReason], [c].[ReviewedAt], [c].[ReviewedByUserId], [c].[Statement], [c].[Status], [c].[UserId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion], [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [CandidateApplications] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+INNER JOIN [Elections] AS [e] ON [c].[ElectionId] = [e].[Id]
+WHERE [c].[Id] = @id
+2026-09-26 08:09:31.804 +05:45 [INF] Executed DbCommand (9ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET NOCOUNT ON;
+UPDATE [CandidateApplications] SET [ReviewedAt] = @p0, [ReviewedByUserId] = @p1, [Status] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+INSERT INTO [Candidates] ([ApplicationId], [ElectionId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p4, @p5, @p6);
+2026-09-26 08:09:31.841 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 164.7217ms.
+2026-09-26 08:09:31.848 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.CandidateApplication.CandidateApplicationResponseDto'.
+2026-09-26 08:09:31.854 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem) in 181.7591ms
+2026-09-26 08:09:31.858 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem)'
+2026-09-26 08:09:31.863 +05:45 [INF] Request finished HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/3/approve - 200 null application/json; charset=utf-8 229.1224ms
+2026-09-26 08:09:40.420 +05:45 [INF] Request starting HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/4/approve - application/json 0
+2026-09-26 08:09:40.433 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:09:40.439 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem)'
+2026-09-26 08:09:40.442 +05:45 [INF] Route matched with {action = "Approve", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Approve(Int32) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 08:09:40.448 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:09:40.457 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [c].[Id], [c].[ElectionId], [c].[RejectionReason], [c].[ReviewedAt], [c].[ReviewedByUserId], [c].[Statement], [c].[Status], [c].[UserId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion], [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [CandidateApplications] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+INNER JOIN [Elections] AS [e] ON [c].[ElectionId] = [e].[Id]
+WHERE [c].[Id] = @id
+2026-09-26 08:09:40.468 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET NOCOUNT ON;
+UPDATE [CandidateApplications] SET [ReviewedAt] = @p0, [ReviewedByUserId] = @p1, [Status] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+INSERT INTO [Candidates] ([ApplicationId], [ElectionId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p4, @p5, @p6);
+2026-09-26 08:09:40.485 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 34.0671ms.
+2026-09-26 08:09:40.490 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.CandidateApplication.CandidateApplicationResponseDto'.
+2026-09-26 08:09:40.495 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem) in 46.7013ms
+2026-09-26 08:09:40.500 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.Approve (PollAndVotingSystem)'
+2026-09-26 08:09:40.503 +05:45 [INF] Request finished HTTP/1.1 PUT http://localhost:5145/api/candidateapplications/4/approve - 200 null application/json; charset=utf-8 82.387ms
+2026-09-26 08:11:28.454 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/2/candidates - null null
+2026-09-26 08:11:28.465 +05:45 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/26/2026 2:04:07 AM', Current time (UTC): '9/26/2026 2:26:28 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-09-26 08:11:28.469 +05:45 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/26/2026 2:04:07 AM', Current time (UTC): '9/26/2026 2:26:28 AM'.
+2026-09-26 08:11:28.472 +05:45 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-26 08:11:28.474 +05:45 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-26 08:11:28.476 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/2/candidates - 401 0 null 22.2848ms
+2026-09-26 08:11:36.434 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/2/candidates - null null
+2026-09-26 08:11:36.451 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:11:36.458 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem)'
+2026-09-26 08:11:36.461 +05:45 [INF] Route matched with {action = "GetCandidates", controller = "CandidateApplications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCandidates(Int32) on controller PollAndVotingSystem.Controllers.CandidateApplicationsController (PollAndVotingSystem).
+2026-09-26 08:11:36.485 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:11:36.499 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@electionId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [c].[Id], [c].[ApplicationId], [c].[ElectionId], [c].[UserId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion], [c0].[Id], [c0].[ElectionId], [c0].[RejectionReason], [c0].[ReviewedAt], [c0].[ReviewedByUserId], [c0].[Statement], [c0].[Status], [c0].[UserId]
+FROM [Candidates] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+INNER JOIN [CandidateApplications] AS [c0] ON [c].[ApplicationId] = [c0].[Id]
+WHERE [c].[ElectionId] = @electionId
+2026-09-26 08:11:36.506 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 17.7489ms.
+2026-09-26 08:11:36.511 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PollAndVotingSystem.DTOs.Candidate.CandidateResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-26 08:11:36.516 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem) in 42.4736ms
+2026-09-26 08:11:36.519 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.CandidateApplicationsController.GetCandidates (PollAndVotingSystem)'
+2026-09-26 08:11:36.526 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/candidateapplications/election/2/candidates - 200 null application/json; charset=utf-8 91.4152ms
+2026-09-26 08:13:19.156 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.html - null null
+2026-09-26 08:13:19.286 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.html - 304 null null 129.2835ms
+2026-09-26 08:13:19.298 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - null null
+2026-09-26 08:13:19.299 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.css - null null
+2026-09-26 08:13:19.303 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-26 08:13:19.303 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - null null
+2026-09-26 08:13:19.308 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.js - null null
+2026-09-26 08:13:19.330 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - 304 null null 32.6066ms
+2026-09-26 08:13:19.330 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - 304 null null 27.5221ms
+2026-09-26 08:13:19.330 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.css - 304 null null 32.5957ms
+2026-09-26 08:13:19.346 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.js - 304 null null 37.8935ms
+2026-09-26 08:13:19.353 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - 304 null null 49.827ms
+2026-09-26 08:13:19.445 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - null null
+2026-09-26 08:13:19.727 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 282.0477ms
+2026-09-26 08:14:00.548 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Auth/login - application/json 61
+2026-09-26 08:14:00.562 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:14:00.565 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:14:00.569 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:14:00.573 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 08:14:00.577 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:14:00.591 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 08:14:00.711 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 130.9611ms.
+2026-09-26 08:14:00.718 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 08:14:00.725 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 147.8177ms
+2026-09-26 08:14:00.729 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:14:00.735 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Auth/login - 200 null application/json; charset=utf-8 186.4775ms
+2026-09-26 08:18:02.920 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - application/json 21
+2026-09-26 08:18:02.934 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:18:02.936 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:18:02.947 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:18:02.955 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:18:02.968 +05:45 [INF] Route matched with {action = "Create", controller = "Delegations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, PollAndVotingSystem.DTOs.Delegation.CreateDelegationRequestDto) on controller PollAndVotingSystem.Controllers.DelegationsController (PollAndVotingSystem).
+2026-09-26 08:18:02.980 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:18:02.998 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:18:03.023 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:18:03.060 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@electionId='?' (DbType = Int32), @delegatorId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[DelegateId], [d].[DelegatorId], [d].[ElectionId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Delegations] AS [d]
+INNER JOIN [Users] AS [u] ON [d].[DelegateId] = [u].[Id]
+WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @delegatorId
+2026-09-26 08:18:03.079 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:18:03.093 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:18:03.138 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Delegations] ([CreatedAt], [DelegateId], [DelegatorId], [ElectionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-09-26 08:18:03.152 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 168.8766ms.
+2026-09-26 08:18:03.156 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Delegation.DelegationStatusResponseDto'.
+2026-09-26 08:18:03.164 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) in 189.501ms
+2026-09-26 08:18:03.169 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:18:03.172 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - 200 null application/json; charset=utf-8 252.1656ms
+2026-09-26 08:18:21.340 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - application/json 21
+2026-09-26 08:18:21.346 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:18:21.348 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:18:21.357 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:18:21.362 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:18:21.365 +05:45 [INF] Route matched with {action = "Create", controller = "Delegations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, PollAndVotingSystem.DTOs.Delegation.CreateDelegationRequestDto) on controller PollAndVotingSystem.Controllers.DelegationsController (PollAndVotingSystem).
+2026-09-26 08:18:21.372 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:18:21.382 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:18:21.392 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:18:21.404 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@electionId='?' (DbType = Int32), @delegatorId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[DelegateId], [d].[DelegatorId], [d].[ElectionId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Delegations] AS [d]
+INNER JOIN [Users] AS [u] ON [d].[DelegateId] = [u].[Id]
+WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @delegatorId
+2026-09-26 08:18:21.414 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) in 43.694ms
+2026-09-26 08:18:21.420 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:18:21.423 +05:45 [ERR] Unhandled exception on /api/Delegations/election/1
+System.InvalidOperationException: You have already delegated your vote in this election.
+   at PollAndVotingSystem.Services.Implementation.DelegationService.CreateAsync(Int32 electionId, CreateDelegationRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Services\Implementation\DelegationService.cs:line 50
+   at PollAndVotingSystem.Controllers.DelegationsController.Create(Int32 electionId, CreateDelegationRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Controllers\DelegationsController.cs:line 23
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PollAndVotingSystem.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, ApplicationDbContext dbContext) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-09-26 08:18:21.464 +05:45 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ErrorLogs] ([ExceptionType], [Message], [Path], [StackTrace], [StatusCode], [Timestamp], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 08:18:21.471 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - 400 null application/json 130.8731ms
+2026-09-26 08:20:02.917 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - application/json 22
+2026-09-26 08:20:02.937 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:20:02.939 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:20:02.952 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:20:02.956 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:20:02.968 +05:45 [INF] Route matched with {action = "CastVote", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CastVote(Int32, PollAndVotingSystem.DTOs.Vote.CastVoteRequestDto) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:20:02.977 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:20:02.994 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:20:03.009 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:20:03.036 +05:45 [INF] Executed DbCommand (12ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:20:03.047 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) in 74.7322ms
+2026-09-26 08:20:03.053 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:20:03.061 +05:45 [ERR] Unhandled exception on /api/Votes/election/1
+System.InvalidOperationException: You have delegated your vote and cannot vote directly in this election.
+   at PollAndVotingSystem.Services.Implementation.VoteService.CastVoteAsync(Int32 electionId, CastVoteRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Services\Implementation\VoteService.cs:line 56
+   at PollAndVotingSystem.Controllers.VotesController.CastVote(Int32 electionId, CastVoteRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Controllers\VotesController.cs:line 24
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PollAndVotingSystem.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, ApplicationDbContext dbContext) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-09-26 08:20:03.113 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ErrorLogs] ([ExceptionType], [Message], [Path], [StackTrace], [StatusCode], [Timestamp], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 08:20:03.120 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - 400 null application/json 203.4023ms
+2026-09-26 08:20:56.608 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Auth/login - application/json 61
+2026-09-26 08:20:56.613 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:20:56.628 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:20:56.642 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:20:56.648 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:20:56.652 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 08:20:56.657 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:20:56.668 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 08:20:56.674 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.UnauthorizedObjectResult in 13.101ms.
+2026-09-26 08:20:56.680 +05:45 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-26 08:20:56.684 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 27.587ms
+2026-09-26 08:20:56.688 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:20:56.694 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Auth/login - 401 null application/json; charset=utf-8 86.3238ms
+2026-09-26 08:21:07.555 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Auth/login - application/json 61
+2026-09-26 08:21:07.562 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:21:07.564 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:21:07.573 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:21:07.578 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:21:07.581 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 08:21:07.587 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:21:07.598 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 08:21:07.790 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 197.0368ms.
+2026-09-26 08:21:07.798 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 08:21:07.806 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 219.0869ms
+2026-09-26 08:21:07.811 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:21:07.815 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Auth/login - 200 null application/json; charset=utf-8 260.5918ms
+2026-09-26 08:22:20.368 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - application/json 21
+2026-09-26 08:22:20.374 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:22:20.376 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:22:20.389 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:22:20.395 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:22:20.398 +05:45 [INF] Route matched with {action = "Create", controller = "Delegations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, PollAndVotingSystem.DTOs.Delegation.CreateDelegationRequestDto) on controller PollAndVotingSystem.Controllers.DelegationsController (PollAndVotingSystem).
+2026-09-26 08:22:20.409 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:22:20.418 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:22:20.425 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) in 22.197ms
+2026-09-26 08:22:20.430 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:22:20.434 +05:45 [ERR] Unhandled exception on /api/Delegations/election/1
+System.InvalidOperationException: You cannot delegate your vote to yourself.
+   at PollAndVotingSystem.Services.Implementation.DelegationService.CreateAsync(Int32 electionId, CreateDelegationRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Services\Implementation\DelegationService.cs:line 42
+   at PollAndVotingSystem.Controllers.DelegationsController.Create(Int32 electionId, CreateDelegationRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Controllers\DelegationsController.cs:line 23
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PollAndVotingSystem.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, ApplicationDbContext dbContext) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-09-26 08:22:20.456 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ErrorLogs] ([ExceptionType], [Message], [Path], [StackTrace], [StatusCode], [Timestamp], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 08:22:20.461 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - 400 null application/json 92.9982ms
+2026-09-26 08:22:29.497 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - application/json 21
+2026-09-26 08:22:29.513 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:22:29.514 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:22:29.525 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:22:29.530 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:22:29.534 +05:45 [INF] Route matched with {action = "Create", controller = "Delegations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, PollAndVotingSystem.DTOs.Delegation.CreateDelegationRequestDto) on controller PollAndVotingSystem.Controllers.DelegationsController (PollAndVotingSystem).
+2026-09-26 08:22:29.540 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:22:29.555 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:22:29.573 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:22:29.594 +05:45 [INF] Executed DbCommand (10ms) [Parameters=[@electionId='?' (DbType = Int32), @delegatorId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[DelegateId], [d].[DelegatorId], [d].[ElectionId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Delegations] AS [d]
+INNER JOIN [Users] AS [u] ON [d].[DelegateId] = [u].[Id]
+WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @delegatorId
+2026-09-26 08:22:29.608 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:22:29.625 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:22:29.647 +05:45 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Delegations] ([CreatedAt], [DelegateId], [DelegatorId], [ElectionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-09-26 08:22:29.656 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 111.2767ms.
+2026-09-26 08:22:29.665 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Delegation.DelegationStatusResponseDto'.
+2026-09-26 08:22:29.674 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) in 133.5326ms
+2026-09-26 08:22:29.677 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:22:29.682 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - 200 null application/json; charset=utf-8 185.7908ms
+2026-09-26 08:22:45.084 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - application/json 22
+2026-09-26 08:22:45.100 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:22:45.102 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:22:45.110 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:22:45.115 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:22:45.118 +05:45 [INF] Route matched with {action = "CastVote", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CastVote(Int32, PollAndVotingSystem.DTOs.Vote.CastVoteRequestDto) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:22:45.127 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:22:45.139 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:22:45.143 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) in 16.8574ms
+2026-09-26 08:22:45.150 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:22:45.156 +05:45 [ERR] Unhandled exception on /api/Votes/election/1
+System.InvalidOperationException: You do not meet the eligibility requirements to vote.
+   at PollAndVotingSystem.Services.Implementation.VoteService.CastVoteAsync(Int32 electionId, CastVoteRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Services\Implementation\VoteService.cs:line 48
+   at PollAndVotingSystem.Controllers.VotesController.CastVote(Int32 electionId, CastVoteRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Controllers\VotesController.cs:line 24
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PollAndVotingSystem.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, ApplicationDbContext dbContext) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-09-26 08:22:45.189 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ErrorLogs] ([ExceptionType], [Message], [Path], [StackTrace], [StatusCode], [Timestamp], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 08:22:45.197 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - 400 null application/json 112.5767ms
+2026-09-26 08:24:06.059 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Auth/login - application/json 61
+2026-09-26 08:24:06.068 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:24:06.070 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:24:06.081 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:24:06.087 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:24:06.089 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 08:24:06.094 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:24:06.117 +05:45 [INF] Executed DbCommand (14ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 08:24:06.242 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 145.4564ms.
+2026-09-26 08:24:06.251 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 08:24:06.254 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 160.7584ms
+2026-09-26 08:24:06.258 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:24:06.262 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Auth/login - 200 null application/json; charset=utf-8 202.9006ms
+2026-09-26 08:24:58.283 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - application/json 21
+2026-09-26 08:24:58.387 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:24:58.389 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:24:58.400 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:24:58.405 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:24:58.408 +05:45 [INF] Route matched with {action = "Create", controller = "Delegations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, PollAndVotingSystem.DTOs.Delegation.CreateDelegationRequestDto) on controller PollAndVotingSystem.Controllers.DelegationsController (PollAndVotingSystem).
+2026-09-26 08:24:58.427 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:24:58.533 +05:45 [INF] Executed DbCommand (8ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:24:58.576 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:24:58.590 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@electionId='?' (DbType = Int32), @delegatorId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[DelegateId], [d].[DelegatorId], [d].[ElectionId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Delegations] AS [d]
+INNER JOIN [Users] AS [u] ON [d].[DelegateId] = [u].[Id]
+WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @delegatorId
+2026-09-26 08:24:58.652 +05:45 [INF] Executed DbCommand (11ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:24:58.746 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:24:58.761 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Delegations] ([CreatedAt], [DelegateId], [DelegatorId], [ElectionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-09-26 08:24:58.792 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 346.2479ms.
+2026-09-26 08:24:58.798 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Delegation.DelegationStatusResponseDto'.
+2026-09-26 08:24:58.802 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem) in 374.5492ms
+2026-09-26 08:24:58.805 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.DelegationsController.Create (PollAndVotingSystem)'
+2026-09-26 08:24:58.808 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Delegations/election/1 - 200 null application/json; charset=utf-8 524.3656ms
+2026-09-26 08:25:12.555 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - application/json 22
+2026-09-26 08:25:12.569 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:25:12.572 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:25:12.579 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:25:12.584 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:25:12.587 +05:45 [INF] Route matched with {action = "CastVote", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CastVote(Int32, PollAndVotingSystem.DTOs.Vote.CastVoteRequestDto) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:25:12.594 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:25:12.603 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:25:12.614 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:25:12.626 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:25:12.632 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) in 39.5609ms
+2026-09-26 08:25:12.636 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:25:12.640 +05:45 [ERR] Unhandled exception on /api/Votes/election/1
+System.InvalidOperationException: You have delegated your vote and cannot vote directly in this election.
+   at PollAndVotingSystem.Services.Implementation.VoteService.CastVoteAsync(Int32 electionId, CastVoteRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Services\Implementation\VoteService.cs:line 56
+   at PollAndVotingSystem.Controllers.VotesController.CastVote(Int32 electionId, CastVoteRequestDto request) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Controllers\VotesController.cs:line 24
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PollAndVotingSystem.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, ApplicationDbContext dbContext) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-09-26 08:25:12.685 +05:45 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ErrorLogs] ([ExceptionType], [Message], [Path], [StackTrace], [StatusCode], [Timestamp], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 08:25:12.694 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - 400 null application/json 139.1731ms
+2026-09-26 08:26:58.995 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Auth/login - application/json 61
+2026-09-26 08:26:59.010 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:26:59.012 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:26:59.024 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:26:59.029 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:26:59.032 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 08:26:59.037 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:26:59.047 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 08:26:59.139 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 97.7875ms.
+2026-09-26 08:26:59.143 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 08:26:59.150 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 112.7262ms
+2026-09-26 08:26:59.153 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:26:59.156 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Auth/login - 200 null application/json; charset=utf-8 161.4721ms
+2026-09-26 08:27:22.847 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - application/json 22
+2026-09-26 08:27:22.866 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:27:22.867 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:27:22.878 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:27:22.885 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:27:22.888 +05:45 [INF] Route matched with {action = "CastVote", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CastVote(Int32, PollAndVotingSystem.DTOs.Vote.CastVoteRequestDto) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:27:22.896 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:27:22.911 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:27:22.925 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:27:22.944 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:27:22.999 +05:45 [INF] Executed DbCommand (17ms) [Parameters=[@candidateId='?' (DbType = Int32), @electionId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [c].[Id], [c].[ApplicationId], [c].[ElectionId], [c].[UserId]
+FROM [Candidates] AS [c]
+WHERE [c].[Id] = @candidateId AND [c].[ElectionId] = @electionId
+2026-09-26 08:27:23.054 +05:45 [INF] Executed DbCommand (9ms) [Parameters=[@electionId='?' (DbType = Int32), @delegateId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [d].[Id], [d].[CreatedAt], [d].[DelegateId], [d].[DelegatorId], [d].[ElectionId]
+FROM [Delegations] AS [d]
+WHERE [d].[ElectionId] = @electionId AND [d].[DelegateId] = @delegateId
+2026-09-26 08:27:23.134 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Votes] ([CandidateId], [ElectionId], [Timestamp], [VoterId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-09-26 08:27:23.146 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 243.4965ms.
+2026-09-26 08:27:23.155 +05:45 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-26 08:27:23.160 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) in 265.3685ms
+2026-09-26 08:27:23.165 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:27:23.170 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - 200 null application/json; charset=utf-8 322.7723ms
+2026-09-26 08:28:58.161 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Auth/login - application/json 61
+2026-09-26 08:28:58.167 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:28:58.169 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:28:58.180 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:28:58.185 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:28:58.188 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 08:28:58.193 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:28:58.204 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 08:28:58.294 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 97.8047ms.
+2026-09-26 08:28:58.299 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 08:28:58.303 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 110.3541ms
+2026-09-26 08:28:58.309 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 08:28:58.313 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Auth/login - 200 null application/json; charset=utf-8 152.072ms
+2026-09-26 08:29:21.203 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - application/json 22
+2026-09-26 08:29:21.209 +05:45 [INF] CORS policy execution failed.
+2026-09-26 08:29:21.211 +05:45 [INF] Request origin http://localhost:5145 does not have permission to access the resource.
+2026-09-26 08:29:21.221 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:29:21.226 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:29:21.229 +05:45 [INF] Route matched with {action = "CastVote", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CastVote(Int32, PollAndVotingSystem.DTOs.Vote.CastVoteRequestDto) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:29:21.237 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:29:21.249 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:29:21.279 +05:45 [INF] Executed DbCommand (17ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:29:21.297 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:29:21.315 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@candidateId='?' (DbType = Int32), @electionId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [c].[Id], [c].[ApplicationId], [c].[ElectionId], [c].[UserId]
+FROM [Candidates] AS [c]
+WHERE [c].[Id] = @candidateId AND [c].[ElectionId] = @electionId
+2026-09-26 08:29:21.337 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @delegateId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [d].[Id], [d].[CreatedAt], [d].[DelegateId], [d].[DelegatorId], [d].[ElectionId]
+FROM [Delegations] AS [d]
+WHERE [d].[ElectionId] = @electionId AND [d].[DelegateId] = @delegateId
+2026-09-26 08:29:21.354 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Votes] AS [v]
+        WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:29:21.418 +05:45 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Votes] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1)) AS i ([CandidateId], [ElectionId], [Timestamp], [VoterId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CandidateId], [ElectionId], [Timestamp], [VoterId])
+VALUES (i.[CandidateId], i.[ElectionId], i.[Timestamp], i.[VoterId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-09-26 08:29:21.428 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 187.1883ms.
+2026-09-26 08:29:21.436 +05:45 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-26 08:29:21.444 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem) in 206.9569ms
+2026-09-26 08:29:21.451 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.CastVote (PollAndVotingSystem)'
+2026-09-26 08:29:21.456 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/Votes/election/1 - 200 null application/json; charset=utf-8 252.7541ms
+2026-09-26 08:32:32.672 +05:45 [INF] Application is shutting down...
+2026-09-26 08:32:50.860 +05:45 [INF] User profile is available. Using 'C:\Users\samshrestha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-26 08:32:51.033 +05:45 [INF] Now listening on: http://localhost:5145
+2026-09-26 08:32:51.037 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-26 08:32:51.040 +05:45 [INF] Hosting environment: Development
+2026-09-26 08:32:51.042 +05:45 [INF] Content root path: C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem
+2026-09-26 08:44:04.305 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/Votes/election/1/status - null null
+2026-09-26 08:44:04.614 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-09-26 08:44:07.750 +05:45 [INF] Executed DbCommand (106ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:44:07.980 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.GetMyStatus (PollAndVotingSystem)'
+2026-09-26 08:44:08.018 +05:45 [INF] Route matched with {action = "GetMyStatus", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyStatus(Int32) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:44:08.069 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.GetMyStatus (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:44:08.130 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @voterId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [v].[Id], [v].[CandidateId], [v].[ElectionId], [v].[Timestamp], [v].[VoterId]
+FROM [Votes] AS [v]
+WHERE [v].[ElectionId] = @electionId AND [v].[VoterId] = @voterId
+2026-09-26 08:44:08.233 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Delegations] AS [d]
+        WHERE [d].[ElectionId] = @electionId AND [d].[DelegatorId] = @userId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 08:44:08.253 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.VotesController.GetMyStatus (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 171.8708ms.
+2026-09-26 08:44:08.270 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Vote.VoteStatusResponseDto'.
+2026-09-26 08:44:08.368 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.GetMyStatus (PollAndVotingSystem) in 337.5585ms
+2026-09-26 08:44:08.377 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.GetMyStatus (PollAndVotingSystem)'
+2026-09-26 08:44:08.404 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/Votes/election/1/status - 200 null application/json; charset=utf-8 4105.3813ms
+2026-09-26 08:44:35.224 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/Votes/election/1/results - null null
+2026-09-26 08:44:35.357 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:44:35.365 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem)'
+2026-09-26 08:44:35.377 +05:45 [INF] Route matched with {action = "GetResults", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetResults(Int32) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:44:35.385 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:44:35.413 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:44:35.461 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem) in 79.1078ms
+2026-09-26 08:44:35.466 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem)'
+2026-09-26 08:44:35.470 +05:45 [ERR] Unhandled exception on /api/Votes/election/1/results
+System.InvalidOperationException: Results are not available until the election is closed.
+   at PollAndVotingSystem.Services.Implementation.VoteService.GetResultsAsync(Int32 electionId) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Services\Implementation\VoteService.cs:line 124
+   at PollAndVotingSystem.Controllers.VotesController.GetResults(Int32 electionId) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Controllers\VotesController.cs:line 37
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PollAndVotingSystem.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, ApplicationDbContext dbContext) in C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem\Middleware\ExceptionHandlingMiddleware.cs:line 21
+2026-09-26 08:44:35.963 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ErrorLogs] ([ExceptionType], [Message], [Path], [StackTrace], [StatusCode], [Timestamp], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-09-26 08:44:36.037 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/Votes/election/1/results - 400 null application/json 813.5229ms
+2026-09-26 08:46:11.855 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/Votes/election/1/results - null null
+2026-09-26 08:46:11.991 +05:45 [INF] Executed DbCommand (14ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 08:46:11.999 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem)'
+2026-09-26 08:46:12.003 +05:45 [INF] Route matched with {action = "GetResults", controller = "Votes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetResults(Int32) on controller PollAndVotingSystem.Controllers.VotesController (PollAndVotingSystem).
+2026-09-26 08:46:12.022 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 08:46:12.038 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Elections] AS [e]
+WHERE [e].[Id] = @p
+2026-09-26 08:46:12.258 +05:45 [INF] Executed DbCommand (15ms) [Parameters=[@electionId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [v].[Id], [v].[CandidateId], [v].[ElectionId], [v].[Timestamp], [v].[VoterId], [c].[Id], [c].[ApplicationId], [c].[ElectionId], [c].[UserId], [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Votes] AS [v]
+INNER JOIN [Candidates] AS [c] ON [v].[CandidateId] = [c].[Id]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [v].[ElectionId] = @electionId
+2026-09-26 08:46:12.336 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 309.3717ms.
+2026-09-26 08:46:12.340 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Vote.ElectionResultsResponseDto'.
+2026-09-26 08:46:12.359 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem) in 348.0652ms
+2026-09-26 08:46:12.363 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.VotesController.GetResults (PollAndVotingSystem)'
+2026-09-26 08:46:12.366 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/Votes/election/1/results - 200 null application/json; charset=utf-8 510.8085ms
+2026-09-26 08:46:37.183 +05:45 [INF] Application is shutting down...
+2026-09-26 14:57:47.123 +05:45 [INF] User profile is available. Using 'C:\Users\samshrestha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-26 14:57:47.408 +05:45 [INF] Now listening on: http://localhost:5145
+2026-09-26 14:57:47.416 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-26 14:57:47.424 +05:45 [INF] Hosting environment: Development
+2026-09-26 14:57:47.428 +05:45 [INF] Content root path: C:\Users\samshrestha\RiderProjects\PollAndVotingSystem\PollAndVotingSystem
+2026-09-26 14:57:49.240 +05:45 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+ORDER BY [e].[StartDate] DESC
+2026-09-26 14:57:51.727 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/auth/login - application/json 67
+2026-09-26 14:57:51.831 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-09-26 14:57:51.920 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 14:57:51.990 +05:45 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PollAndVotingSystem.DTOs.Auth.LoginRequestDto) on controller PollAndVotingSystem.Controllers.AuthController (PollAndVotingSystem).
+2026-09-26 14:57:52.145 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 14:57:52.471 +05:45 [INF] Executed DbCommand (35ms) [Parameters=[@ToLower='?' (Size = 450)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Email]) = @ToLower
+2026-09-26 14:57:52.761 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 602.0471ms.
+2026-09-26 14:57:52.783 +05:45 [INF] Executing OkObjectResult, writing value of type 'PollAndVotingSystem.DTOs.Auth.AuthResponseDto'.
+2026-09-26 14:57:52.814 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem) in 806.3128ms
+2026-09-26 14:57:52.821 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.AuthController.Login (PollAndVotingSystem)'
+2026-09-26 14:57:52.845 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/auth/login - 200 null application/json; charset=utf-8 1134.4885ms
+2026-09-26 15:00:09.983 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/elections - application/json 255
+2026-09-26 15:00:10.187 +05:45 [INF] Executed DbCommand (12ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 15:00:10.208 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 15:00:10.223 +05:45 [INF] Route matched with {action = "Create", controller = "Elections"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PollAndVotingSystem.DTOs.Election.ElectionRequestDto) on controller PollAndVotingSystem.Controllers.ElectionsController (PollAndVotingSystem).
+2026-09-26 15:00:10.258 +05:45 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-09-26 15:00:10.316 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem) in 87.6669ms
+2026-09-26 15:00:10.323 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 15:00:10.327 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/elections - 400 null application/problem+json; charset=utf-8 346.2399ms
+2026-09-26 15:00:44.556 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/elections - application/json 250
+2026-09-26 15:00:44.588 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 15:00:44.604 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 15:00:44.607 +05:45 [INF] Route matched with {action = "Create", controller = "Elections"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PollAndVotingSystem.DTOs.Election.ElectionRequestDto) on controller PollAndVotingSystem.Controllers.ElectionsController (PollAndVotingSystem).
+2026-09-26 15:00:44.627 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 15:00:44.662 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [d].[Id], [d].[Name]
+FROM [Departments] AS [d]
+WHERE [d].[Id] = @p
+2026-09-26 15:00:45.105 +05:45 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Elections] ([CreatedByUserId], [DepartmentId], [Description], [EndDate], [IsLocked], [MinTenureYears], [StartDate], [Status], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-09-26 15:00:45.170 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 537.817ms.
+2026-09-26 15:00:45.176 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'PollAndVotingSystem.DTOs.Election.ElectionResponseDto'.
+2026-09-26 15:00:45.233 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem) in 620.1974ms
+2026-09-26 15:00:45.238 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 15:00:45.242 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/elections - 201 null application/json; charset=utf-8 686.5937ms
+2026-09-26 15:01:01.678 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.html - null null
+2026-09-26 15:01:01.778 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.html - 304 null null 100.4986ms
+2026-09-26 15:01:01.804 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-26 15:01:01.805 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - null null
+2026-09-26 15:01:01.806 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.css - null null
+2026-09-26 15:01:01.806 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - null null
+2026-09-26 15:01:01.808 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.js - null null
+2026-09-26 15:01:01.828 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.css - 304 null null 21.4492ms
+2026-09-26 15:01:01.828 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - 304 null null 23.6216ms
+2026-09-26 15:01:01.853 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - 304 null null 46.3446ms
+2026-09-26 15:01:01.855 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - 304 null null 49.7774ms
+2026-09-26 15:01:01.858 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.js - 304 null null 49.9041ms
+2026-09-26 15:01:01.974 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - null null
+2026-09-26 15:01:01.978 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/favicon-32x32.png - null null
+2026-09-26 15:01:01.991 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/favicon-32x32.png - 200 628 image/png 12.6052ms
+2026-09-26 15:01:02.209 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 235.1563ms
+2026-09-26 15:01:22.566 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/Notifications/mine - null null
+2026-09-26 15:01:22.589 +05:45 [INF] Executed DbCommand (10ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 15:01:22.596 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem)'
+2026-09-26 15:01:22.608 +05:45 [INF] Route matched with {action = "GetMine", controller = "Notifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMine() on controller PollAndVotingSystem.Controllers.NotificationsController (PollAndVotingSystem).
+2026-09-26 15:01:22.614 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 15:01:22.662 +05:45 [INF] Executed DbCommand (11ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [n].[Id], [n].[CreatedAt], [n].[ElectionId], [n].[IsRead], [n].[Message], [n].[Type], [n].[UserId], [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Notifications] AS [n]
+INNER JOIN [Elections] AS [e] ON [n].[ElectionId] = [e].[Id]
+WHERE [n].[UserId] = @userId
+ORDER BY [n].[CreatedAt] DESC
+2026-09-26 15:01:22.669 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 51.8343ms.
+2026-09-26 15:01:22.674 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PollAndVotingSystem.DTOs.Notification.NotificationResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-26 15:01:22.680 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem) in 67.3229ms
+2026-09-26 15:01:22.685 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem)'
+2026-09-26 15:01:22.689 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/Notifications/mine - 200 null application/json; charset=utf-8 123.1645ms
+2026-09-26 15:02:49.459 +05:45 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+ORDER BY [e].[StartDate] DESC
+2026-09-26 15:02:49.554 +05:45 [INF] Executed DbCommand (7ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:02:49.601 +05:45 [INF] Executed DbCommand (8ms) [Parameters=[@departmentId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [u].[Id]
+FROM [Users] AS [u]
+WHERE [u].[DepartmentId] = @departmentId
+2026-09-26 15:02:49.708 +05:45 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean), @p9='?' (Size = 4000), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Int32), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Int32), @p20='?' (DbType = Boolean), @p21='?' (Size = 4000), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Int32), @p26='?' (DbType = Boolean), @p27='?' (Size = 4000), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime2), @p31='?' (DbType = Int32), @p32='?' (DbType = Boolean), @p33='?' (Size = 4000), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Notifications] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5)) AS i ([CreatedAt], [ElectionId], [IsRead], [Message], [Type], [UserId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [ElectionId], [IsRead], [Message], [Type], [UserId])
+VALUES (i.[CreatedAt], i.[ElectionId], i.[IsRead], i.[Message], i.[Type], i.[UserId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-09-26 15:03:14.067 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5145/api/elections - application/json 250
+2026-09-26 15:03:14.114 +05:45 [INF] Executed DbCommand (22ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 15:03:14.120 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 15:03:14.127 +05:45 [INF] Route matched with {action = "Create", controller = "Elections"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PollAndVotingSystem.DTOs.Election.ElectionRequestDto) on controller PollAndVotingSystem.Controllers.ElectionsController (PollAndVotingSystem).
+2026-09-26 15:03:14.149 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 15:03:14.165 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [d].[Id], [d].[Name]
+FROM [Departments] AS [d]
+WHERE [d].[Id] = @p
+2026-09-26 15:03:14.190 +05:45 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Elections] ([CreatedByUserId], [DepartmentId], [Description], [EndDate], [IsLocked], [MinTenureYears], [StartDate], [Status], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-09-26 15:03:14.199 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 44.7855ms.
+2026-09-26 15:03:14.205 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'PollAndVotingSystem.DTOs.Election.ElectionResponseDto'.
+2026-09-26 15:03:14.216 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem) in 81.3887ms
+2026-09-26 15:03:14.222 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.ElectionsController.Create (PollAndVotingSystem)'
+2026-09-26 15:03:14.230 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5145/api/elections - 201 null application/json; charset=utf-8 163.4129ms
+2026-09-26 15:04:04.161 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/api/Notifications/mine - null null
+2026-09-26 15:04:04.189 +05:45 [INF] Executed DbCommand (14ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT TOP(1) [u].[Id], [u].[DateJoined], [u].[DepartmentId], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[TokenVersion]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @p
+2026-09-26 15:04:04.195 +05:45 [INF] Executing endpoint 'PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem)'
+2026-09-26 15:04:04.198 +05:45 [INF] Route matched with {action = "GetMine", controller = "Notifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMine() on controller PollAndVotingSystem.Controllers.NotificationsController (PollAndVotingSystem).
+2026-09-26 15:04:04.203 +05:45 [INF] Executing action method PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem) - Validation state: "Valid"
+2026-09-26 15:04:04.220 +05:45 [INF] Executed DbCommand (10ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [n].[Id], [n].[CreatedAt], [n].[ElectionId], [n].[IsRead], [n].[Message], [n].[Type], [n].[UserId], [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title]
+FROM [Notifications] AS [n]
+INNER JOIN [Elections] AS [e] ON [n].[ElectionId] = [e].[Id]
+WHERE [n].[UserId] = @userId
+ORDER BY [n].[CreatedAt] DESC
+2026-09-26 15:04:04.231 +05:45 [INF] Executed action method PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 26.0781ms.
+2026-09-26 15:04:04.235 +05:45 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PollAndVotingSystem.DTOs.Notification.NotificationResponseDto, PollAndVotingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-26 15:04:04.242 +05:45 [INF] Executed action PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem) in 39.3915ms
+2026-09-26 15:04:04.246 +05:45 [INF] Executed endpoint 'PollAndVotingSystem.Controllers.NotificationsController.GetMine (PollAndVotingSystem)'
+2026-09-26 15:04:04.249 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/api/Notifications/mine - 200 null application/json; charset=utf-8 87.7083ms
+2026-09-26 15:05:00.924 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.html - null null
+2026-09-26 15:05:00.930 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.html - 304 null null 5.3717ms
+2026-09-26 15:05:00.942 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - null null
+2026-09-26 15:05:00.942 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.css - null null
+2026-09-26 15:05:00.946 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - null null
+2026-09-26 15:05:00.946 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/index.js - null null
+2026-09-26 15:05:00.946 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-26 15:05:00.948 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui.css - 304 null null 6.4826ms
+2026-09-26 15:05:00.953 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.css - 304 null null 10.9671ms
+2026-09-26 15:05:00.957 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-bundle.js - 304 null null 11.9998ms
+2026-09-26 15:05:00.962 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/index.js - 304 null null 16.5734ms
+2026-09-26 15:05:00.973 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/swagger-ui-standalone-preset.js - 304 null null 27.2408ms
+2026-09-26 15:05:01.028 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - null null
+2026-09-26 15:05:01.031 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5145/swagger/favicon-32x32.png - null null
+2026-09-26 15:05:01.039 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/favicon-32x32.png - 304 null null 8.0396ms
+2026-09-26 15:05:01.045 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5145/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.7852ms
+2026-09-26 15:07:49.771 +05:45 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+ORDER BY [e].[StartDate] DESC
+2026-09-26 15:07:49.807 +05:45 [INF] Executed DbCommand (12ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:07:49.824 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@departmentId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT [u].[Id]
+FROM [Users] AS [u]
+WHERE [u].[DepartmentId] = @departmentId
+2026-09-26 15:07:49.853 +05:45 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean), @p9='?' (Size = 4000), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Int32), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Int32), @p20='?' (DbType = Boolean), @p21='?' (Size = 4000), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Int32), @p26='?' (DbType = Boolean), @p27='?' (Size = 4000), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime2), @p31='?' (DbType = Int32), @p32='?' (DbType = Boolean), @p33='?' (Size = 4000), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Notifications] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5)) AS i ([CreatedAt], [ElectionId], [IsRead], [Message], [Type], [UserId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [ElectionId], [IsRead], [Message], [Type], [UserId])
+VALUES (i.[CreatedAt], i.[ElectionId], i.[IsRead], i.[Message], i.[Type], i.[UserId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-09-26 15:07:49.870 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:12:49.899 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+ORDER BY [e].[StartDate] DESC
+2026-09-26 15:12:49.911 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:12:49.921 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:17:49.953 +05:45 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+ORDER BY [e].[StartDate] DESC
+2026-09-26 15:17:49.969 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:17:49.979 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:30:31.263 +05:45 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='0']
+SELECT [e].[Id], [e].[CreatedByUserId], [e].[DepartmentId], [e].[Description], [e].[EndDate], [e].[IsLocked], [e].[MinTenureYears], [e].[StartDate], [e].[Status], [e].[Title], [d].[Id], [d].[Name]
+FROM [Elections] AS [e]
+INNER JOIN [Departments] AS [d] ON [e].[DepartmentId] = [d].[Id]
+ORDER BY [e].[StartDate] DESC
+2026-09-26 15:30:31.275 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-09-26 15:30:31.287 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@electionId='?' (DbType = Int32), @type='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='0']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notifications] AS [n]
+        WHERE [n].[ElectionId] = @electionId AND [n].[Type] = @type) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END

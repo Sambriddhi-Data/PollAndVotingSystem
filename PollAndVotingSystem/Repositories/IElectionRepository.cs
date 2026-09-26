@@ -10,6 +10,7 @@ namespace PollAndVotingSystem.Repositories
         Task AddAsync(Election election);
         void Update(Election election);
         void Remove(Election election);
+        Task<List<Election>> GetAllAsync();
         Task SaveChangesAsync();
     }
 }
