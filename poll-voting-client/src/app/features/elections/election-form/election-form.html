@@ -1,0 +1,36 @@
+<div class="page">
+  <h1>{{ isEditMode() ? 'Edit Election' : 'New Election' }}</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Title</label>
+    <input type="text" formControlName="title" />
+
+    <label>Description</label>
+    <textarea formControlName="description"></textarea>
+
+    <label>Department</label>
+    <select formControlName="departmentId" [disabled]="isEditMode()">
+      <option [value]="null" disabled>Select a department</option>
+      @for (d of departments(); track d.id) {
+        <option [value]="d.id">{{ d.name }}</option>
+      }
+    </select>
+
+    <label>Start Date</label>
+    <input type="datetime-local" formControlName="startDate" />
+
+    <label>End Date</label>
+    <input type="datetime-local" formControlName="endDate" />
+
+    <label>Minimum Tenure (years)</label>
+    <input type="number" formControlName="minTenureYears" min="0" />
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+
+    <button type="submit" [disabled]="form.invalid || isSubmitting()">
+      {{ isSubmitting() ? 'Saving...' : 'Save' }}
+    </button>
+  </form>
+</div>

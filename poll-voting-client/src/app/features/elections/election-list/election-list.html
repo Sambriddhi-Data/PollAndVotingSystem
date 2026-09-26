@@ -1,0 +1,29 @@
+<div class="page">
+  <header>
+    <h1>Elections</h1>
+    @if (currentUser.isAdmin()) {
+      <a routerLink="/elections/new" class="btn">+ New Election</a>
+    }
+  </header>
+
+  @if (isLoading()) {
+    <p>Loading...</p>
+  } @else if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
+  } @else if (elections().length === 0) {
+    <p>No elections yet.</p>
+  } @else {
+    <ul class="election-cards">
+      @for (e of elections(); track e.id) {
+        <li>
+          <a [routerLink]="['/elections', e.id]">
+            <h3>{{ e.title }}</h3>
+            <span class="badge" [class]="e.status.toLowerCase()">{{ e.status }}</span>
+            <p>{{ e.description }}</p>
+            <small>{{ e.startDate | date }} → {{ e.endDate | date }}</small>
+          </a>
+        </li>
+      }
+    </ul>
+  }
+</div>

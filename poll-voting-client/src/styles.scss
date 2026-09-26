@@ -1,1 +1,292 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// ---- Global app shell ----
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: $body-bg;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: $primary-900;
+      margin: 0;
+    }
+  }
+}
+
+// ---- Status badges (mapped to your election statuses) ----
+.badge {
+  font-weight: 600;
+  padding: 0.4em 0.9em;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+
+  &.draft {
+    background-color: $primary-100;
+    color: $primary-800;
+  }
+  &.active {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  &.closed {
+    background-color: #f1f5f9;
+    color: #475569;
+  }
+}
+
+// ---- Cards ----
+.card,
+.card-custom {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-sm;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}
+
+// ---- Election list cards ----
+.election-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+
+  li a {
+    display: block;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-sm;
+    padding: 1.25rem 1.5rem;
+    color: inherit;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      box-shadow: $box-shadow;
+      border-color: $primary-300;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $primary-900;
+      margin: 0 0 0.4rem;
+      display: inline-block;
+      margin-right: 0.6rem;
+    }
+
+    p {
+      color: #64748b;
+      margin: 0.5rem 0 0.25rem;
+      font-size: 0.925rem;
+    }
+
+    small {
+      color: #94a3b8;
+    }
+  }
+}
+
+// ---- Forms ----
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 480px;
+
+  label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: $primary-900;
+    margin-top: 0.65rem;
+  }
+
+  input,
+  select,
+  textarea {
+    border: 1px solid #cbd5e1;
+    border-radius: $border-radius;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.925rem;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-500;
+      box-shadow: 0 0 0 3px rgba($primary-500, 0.15);
+    }
+  }
+
+  textarea {
+    min-height: 90px;
+    resize: vertical;
+  }
+
+  button[type='submit'] {
+    margin-top: 1.25rem;
+    align-self: flex-start;
+  }
+}
+
+button,
+.btn {
+  display: inline-block;
+  background-color: $primary-600;
+  color: #fff;
+  border: none;
+  border-radius: $border-radius;
+  padding: 0.55rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  text-decoration: none;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-700;
+  }
+
+  &:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+  }
+}
+
+// Secondary/danger action buttons — apply the .btn-secondary / .btn-danger class in templates as needed
+.btn-secondary {
+  background-color: $secondary-600;
+  &:hover:not(:disabled) { background-color: $secondary-700; }
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  &:hover:not(:disabled) { background-color: #b91c1c; }
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: $primary-700;
+  border: 1px solid $primary-300;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-50;
+  }
+}
+
+// ---- Alerts / messages ----
+.error {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: $border-radius;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  margin: 0.75rem 0;
+}
+
+.success {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  border-radius: $border-radius;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  margin: 0.75rem 0;
+}
+
+// ---- Auth pages ----
+.auth-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  background: #fff;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+  padding: 2.5rem 2rem;
+
+  h2 {
+    color: $primary-900;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #64748b;
+
+    a {
+      color: $primary-600;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ---- Dashboard shells ----
+.dashboard {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $primary-900;
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    a {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: $border-radius;
+      padding: 0.75rem 1.25rem;
+      color: $primary-700;
+      font-weight: 600;
+      box-shadow: $box-shadow-sm;
+
+      &:hover {
+        border-color: $primary-300;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}

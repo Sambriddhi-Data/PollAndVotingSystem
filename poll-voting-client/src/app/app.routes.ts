@@ -22,5 +22,25 @@ export const routes: Routes = [
     loadComponent: () => import('./features/dashboard/voter-home/voter-home').then(m => m.VoterHome),
     canActivate: [authGuard]
   },
+  {
+    path: 'elections',
+    loadComponent: () => import('./features/elections/election-list/election-list').then(m => m.ElectionList),
+    canActivate: [authGuard]
+  },
+  {
+    path: 'elections/new',
+    loadComponent: () => import('./features/elections/election-form/election-form').then(m => m.ElectionForm),
+    canActivate: [authGuard, adminGuard]
+  },
+  {
+    path: 'elections/:id/edit',
+    loadComponent: () => import('./features/elections/election-form/election-form').then(m => m.ElectionForm),
+    canActivate: [authGuard, adminGuard]
+  },
+  {
+    path: 'elections/:id',
+    loadComponent: () => import('./features/elections/election-detail/election-detail').then(m => m.ElectionDetail),
+    canActivate: [authGuard]
+  },
   { path: '**', redirectTo: 'login' }
 ];

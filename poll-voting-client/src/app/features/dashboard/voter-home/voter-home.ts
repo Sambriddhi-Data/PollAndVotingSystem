@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { Auth } from '../../../core/services/auth';
 import { CurrentUser } from '../../../core/services/current-user';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-voter-home',
   styleUrl: './voter-home.scss',
   templateUrl: './voter-home.html',

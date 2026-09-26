@@ -1,0 +1,129 @@
+@if (election(); as e) {
+  <div class="page">
+    <header>
+      <h1>{{ e.title }}</h1>
+      <span class="badge" [class]="e.status.toLowerCase()">{{ e.status }}</span>
+    </header>
+
+    <p>{{ e.description }}</p>
+    <small>{{ e.departmentName }} · Min tenure: {{ e.minTenureYears }} yr(s)</small>
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+    @if (actionMessage()) {
+      <p class="success">{{ actionMessage() }}</p>
+    }
+
+    <!-- ADMIN: Draft stage -->
+    @if (currentUser.isAdmin() && e.status === 'Draft') {
+      <section>
+        <h2>Pending Applications</h2>
+        @if (pendingApplications().length === 0) {
+          <p>No applications yet.</p>
+        }
+        @for (app of pendingApplications(); track app.id) {
+          <div class="card">
+            <strong>{{ app.userName }}</strong> — {{ app.status }}
+            <p>{{ app.statement }}</p>
+            @if (app.status === 'Pending') {
+              <button (click)="onApprove(app.id)">Approve</button>
+              <button (click)="onReject(app.id)">Reject</button>
+            }
+          </div>
+        }
+        <button (click)="onActivate()">Activate Election</button>
+      </section>
+    }
+
+    <!-- VOTER: Draft stage -->
+    @if (!currentUser.isAdmin() && e.status === 'Draft') {
+      <section>
+        <h2>Apply as a Candidate</h2>
+        <textarea [value]="applyStatement()" (input)="applyStatement.set($any($event.target).value)"
+                   placeholder="Your candidate statement..."></textarea>
+        <button (click)="onApply()">Submit Application</button>
+      </section>
+    }
+
+    <!-- Active: Candidates + Voting/Delegation -->
+    @if (e.status === 'Active') {
+      <section>
+        <h2>Candidates</h2>
+        @for (c of candidates(); track c.id) {
+          <div class="card">
+            <strong>{{ c.userName }}</strong>
+            <p>{{ c.statement }}</p>
+          </div>
+        }
+      </section>
+
+      @if (currentUser.isAdmin()) {
+        <section>
+          <h2>Live Tally</h2>
+          @if (results(); as r) {
+            <p>Total votes: {{ r.totalVotesCast }}</p>
+            <ul>
+              @for (res of r.results; track res.candidateId) {
+                <li>{{ res.candidateName }}: {{ res.voteCount }}</li>
+              }
+            </ul>
+          } @else {
+            <p>No votes yet.</p>
+          }
+          <button (click)="onClose()">Close Election</button>
+        </section>
+      } @else {
+        @if (voteStatus(); as vs) {
+          @if (vs.hasVoted) {
+            <p>You have already voted{{ vs.votedOnBehalfByDelegate ? ' (cast by your delegate)' : '' }}.</p>
+          } @else if (delegationStatus()?.hasDelegated) {
+            <div class="card">
+              <p>You delegated your vote to {{ delegationStatus()?.delegateName }}.</p>
+              <button (click)="onRevokeDelegation()">Revoke Delegation</button>
+            </div>
+          } @else {
+            <section>
+              <h2>Cast Your Vote</h2>
+              <select (change)="selectedCandidateId.set($any($event.target).value ? +$any($event.target).value : null)">
+                <option [value]="null">Select a candidate</option>
+                @for (c of candidates(); track c.id) {
+                  <option [value]="c.id">{{ c.userName }}</option>
+                }
+              </select>
+              <button (click)="onVote()">Vote</button>
+            </section>
+
+            <section>
+              <h2>Or Delegate Your Vote</h2>
+              <select (change)="selectedDelegateId.set($any($event.target).value ? +$any($event.target).value : null)">
+                <option [value]="null">Select someone to delegate to</option>
+                @for (c of candidates(); track c.id) {
+                  <option [value]="c.userId">{{ c.userName }}</option>
+                }
+              </select>
+              <button (click)="onDelegate()">Delegate</button>
+            </section>
+          }
+        }
+      }
+    }
+
+    <!-- Closed: Results -->
+    @if (e.status === 'Closed') {
+      <section>
+        <h2>Final Results</h2>
+        @if (results(); as r) {
+          <p>Total votes: {{ r.totalVotesCast }}</p>
+          <ul>
+            @for (res of r.results; track res.candidateId) {
+              <li>{{ res.candidateName }}: {{ res.voteCount }}</li>
+            }
+          </ul>
+        }
+      </section>
+    }
+  </div>
+} @else {
+  <p>Loading...</p>
+}
