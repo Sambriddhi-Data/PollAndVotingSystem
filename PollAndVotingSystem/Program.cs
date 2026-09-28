@@ -159,6 +159,7 @@ builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddSignalR();
 builder.Services.AddHostedService<PollAndVotingSystem.BackgroundServices.ElectionMonitorService>();
 
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

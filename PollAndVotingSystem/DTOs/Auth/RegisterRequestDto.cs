@@ -1,4 +1,5 @@
-﻿namespace PollAndVotingSystem.DTOs.Auth;
+﻿using PollAndVotingSystem.Common;
+namespace PollAndVotingSystem.DTOs.Auth;
 using System.ComponentModel.DataAnnotations;
 
 public class RegisterRequestDto
@@ -7,6 +8,7 @@ public class RegisterRequestDto
         public string Name { get; set; } = string.Empty;
 
         [Required, EmailAddress]
+        [RegularExpression(AppConstants.EmailPattern, ErrorMessage = "Email must be a @ktmtech.com address.")]
         public string Email { get; set; } = string.Empty;
 
         [Required, MinLength(6)]

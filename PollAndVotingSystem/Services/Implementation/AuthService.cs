@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using PollAndVotingSystem.Authentication;
+using PollAndVotingSystem.Common;
 using PollAndVotingSystem.DTOs.Auth;
 using PollAndVotingSystem.Models;
 using PollAndVotingSystem.Repositories;
@@ -28,6 +29,9 @@ public class AuthService : IAuthService
 
         public async Task<AuthResponseDto> RegisterAsync(RegisterRequestDto request)
         {
+            if (!request.Email.EndsWith(AppConstants.EmailDomain, StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("Only @ktmtech.com email addresses can be registered.");
+            
             if (await _userRepository.EmailExistsAsync(request.Email))
                 throw new InvalidOperationException("Email is already registered.");
 

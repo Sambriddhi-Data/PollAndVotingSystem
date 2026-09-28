@@ -24,8 +24,7 @@ export class Register implements OnInit {
 
   form = this.fb.group({
     name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+    email: ['', [Validators.required, Validators.email, Validators.pattern(/^[^@\s]+@ktmtech\.com$/i)]],    password: ['', [Validators.required, Validators.minLength(6)]],
     departmentId: [null as number | null, Validators.required],
     dateJoined: ['', Validators.required]
   });
