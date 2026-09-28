@@ -1,0 +1,22 @@
+<div class="page">
+  <header><h1>Notifications</h1></header>
+
+  @if (isLoading()) {
+    <p>Loading...</p>
+  } @else if (notifications().length === 0) {
+    <p>No notifications yet.</p>
+  } @else {
+    <ul class="notification-list">
+      @for (n of notifications(); track n.id) {
+        <li class="card" [class.unread]="!n.isRead">
+          <strong>{{ n.electionTitle }}</strong> — {{ n.type }}
+          <p>{{ n.message }}</p>
+          <small>{{ n.createdAt | date:'short' }}</small>
+          @if (!n.isRead) {
+            <button class="btn-outline" (click)="markRead(n.id)">Mark as read</button>
+          }
+        </li>
+      }
+    </ul>
+  }
+</div>

@@ -1,0 +1,32 @@
+<div class="page">
+  <header><h1>Audit Log</h1></header>
+
+  @if (isLoading()) {
+    <p>Loading...</p>
+  } @else if (logs().length === 0) {
+    <p>No audit entries yet.</p>
+  } @else {
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>User</th>
+          <th>Action</th>
+          <th>Entity</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (log of logs(); track log.id) {
+          <tr>
+            <td>{{ log.timestamp | date:'short' }}</td>
+            <td>{{ log.userName }}</td>
+            <td>{{ log.action }}</td>
+            <td>{{ log.entityType }} #{{ log.entityId }}</td>
+            <td>{{ log.details }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

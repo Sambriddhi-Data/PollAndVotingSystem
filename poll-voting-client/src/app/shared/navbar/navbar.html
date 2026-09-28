@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <a [routerLink]="homeLink()" class="brand">KtmTech</a>
+
+  @if (currentUser.isLoggedIn()) {
+    <div class="nav-links">
+      <a routerLink="/elections">Elections</a>
+      @if (currentUser.isAdmin()) {
+        <a routerLink="/admin/audit-logs">Audit Log</a>
+      }
+      <a routerLink="/notifications">Notifications</a>
+      <a routerLink="/account/change-password">Account</a>
+      <button class="btn-outline" (click)="confirmLogout()">Logout</button>
+    </div>
+  }
+</nav>
+
+@if (showLogoutConfirm()) {
+  <div class="modal-backdrop" (click)="cancelLogout()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <h3>Log out?</h3>
+      <p>Are you sure you want to log out of your account?</p>
+      <div class="modal-actions">
+        <button class="btn-outline" (click)="cancelLogout()">Cancel</button>
+        <button class="btn-danger" (click)="doLogout()">Log out</button>
+      </div>
+    </div>
+  </div>
+}

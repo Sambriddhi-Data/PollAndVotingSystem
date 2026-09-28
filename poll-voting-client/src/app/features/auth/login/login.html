@@ -6,6 +6,8 @@
 
     <label>Password</label>
     <input type="password" formControlName="password" />
+    
+    <p class="forgot-link"><a routerLink="/forgot-password">Forgot password?</a></p>
 
     @if (errorMessage()) {
       <p class="error">{{ errorMessage() }}</p>

@@ -19,16 +19,18 @@ export class Login {
   errorMessage = signal('');
   isSubmitting = signal(false);
 
+
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required]
   });
-
+  
   async onSubmit(): Promise<void> {
     if (this.form.invalid) return;
 
     this.errorMessage.set('');
     this.isSubmitting.set(true);
+
 
     try {
       await this.authService.login(this.form.getRawValue() as any);

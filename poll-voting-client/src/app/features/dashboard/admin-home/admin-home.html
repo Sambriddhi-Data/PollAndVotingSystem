@@ -1,12 +1,37 @@
-<div class="dashboard">
+<div class="page">
   <header>
     <h1>Admin Dashboard</h1>
-    <button (click)="logout()">Logout</button>
+    <a routerLink="/elections/new" class="btn">+ New Election</a>
   </header>
+
   <p>Welcome, {{ auth()?.name }} (Department #{{ auth()?.departmentId }})</p>
 
-  <nav>
-    <a routerLink="/elections">Manage Elections</a>
-    <a routerLink="/elections/new">Create Election</a>
-  </nav>
+  <h2>Live Election Tallies</h2>
+
+  @if (isLoading()) {
+    <p>Loading...</p>
+  } @else if (activeElections().length === 0) {
+    <p>No active elections right now.</p>
+  } @else {
+    <div class="tally-grid">
+      @for (e of activeElections(); track e.id) {
+        <div class="card">
+          <h3><a [routerLink]="['/elections', e.id]">{{ e.title }}</a></h3>
+          @if (resultsMap()[e.id]; as r) {
+            <p>Total votes: {{ r.totalVotesCast }}</p>
+            <ul>
+              @for (res of r.results; track res.candidateId) {
+                <li>{{ res.candidateName }}: <strong>{{ res.voteCount }}</strong></li>
+              }
+            </ul>
+          } @else {
+            <p>No votes yet.</p>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  <h2>All Elections</h2>
+  <a routerLink="/elections">Manage all elections →</a>
 </div>

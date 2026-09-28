@@ -30,4 +30,22 @@ export class Auth {
   logout(): void {
     this.currentUser.clearAuth();
   }
+
+  forgotPassword(email: string): Promise<{ message: string; devOtp?: string }> {
+    return firstValueFrom(
+      this.http.post<{ message: string; devOtp?: string }>(`${this.baseUrl}/forgot-password`, { email })
+    );
+  }
+
+  resetPassword(email: string, otp: string, newPassword: string): Promise<{ message: string }> {
+    return firstValueFrom(
+      this.http.post<{ message: string }>(`${this.baseUrl}/reset-password`, { email, otp, newPassword })
+    );
+  }
+
+  changePassword(currentPassword: string, newPassword: string): Promise<{ message: string }> {
+    return firstValueFrom(
+      this.http.post<{ message: string }>(`${this.baseUrl}/change-password`, { currentPassword, newPassword })
+    );
+  }
 }

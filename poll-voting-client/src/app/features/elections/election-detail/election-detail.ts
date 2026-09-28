@@ -43,6 +43,8 @@ export class ElectionDetail implements OnInit, OnDestroy {
   errorMessage = signal('');
   actionMessage = signal('');
 
+  eligibleVoters = signal<{ userId: number; name: string }[]>([]);
+
   private hubConnection: signalR.HubConnection | null = null;
 
   async ngOnInit(): Promise<void> {
@@ -73,6 +75,7 @@ export class ElectionDetail implements OnInit, OnDestroy {
       if (election.status === 'Active' && !this.currentUser.isAdmin()) {
         this.voteStatus.set(await this.voteService.getMyStatus(this.electionId));
         this.delegationStatus.set(await this.delegationService.getMyStatus(this.electionId));
+        this.eligibleVoters.set(await this.electionService.getEligibleVoters(this.electionId));
       }
 
       if (election.status === 'Closed' || this.currentUser.isAdmin()) {

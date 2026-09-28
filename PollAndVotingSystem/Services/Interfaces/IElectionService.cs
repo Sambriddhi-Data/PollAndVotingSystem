@@ -11,6 +11,7 @@ namespace PollAndVotingSystem.Services
         
         Task<ElectionResponseDto> ActivateAsync(int id);
         Task<ElectionResponseDto> CloseAsync(int id);
+        Task<List<EligibleVoterDto>> GetEligibleVotersAsync(int electionId);
         Task<ElectionResponseDto> LockOverrideAsync(int id, string reason);
         Task DeleteAsync(int id);
 

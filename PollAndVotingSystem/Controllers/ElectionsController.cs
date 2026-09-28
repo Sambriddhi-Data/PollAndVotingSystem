@@ -39,6 +39,12 @@ namespace PollAndVotingSystem.Controllers;
                 return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
+        [HttpGet("{id}/eligible-voters")]
+        public async Task<IActionResult> GetEligibleVoters(int id)
+        {
+            return Ok(await _electionService.GetEligibleVotersAsync(id));
+        }
+        
         [HttpPut("{id}")]
         [Authorize(Policy = Policies.RequireAdmin)]
         public async Task<IActionResult> Update(int id, ElectionRequestDto request)

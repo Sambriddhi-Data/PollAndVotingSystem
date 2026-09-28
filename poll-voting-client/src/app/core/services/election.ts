@@ -32,4 +32,10 @@ export class ElectionService {
   close(id: number): Promise<Election> {
     return firstValueFrom(this.http.put<Election>(`${this.baseUrl}/${id}/close`, {}));
   }
+  
+  getEligibleVoters(electionId: number): Promise<{ userId: number; name: string }[]> {
+    return firstValueFrom(
+      this.http.get<{ userId: number; name: string }[]>(`${this.baseUrl}/${electionId}/eligible-voters`)
+    );
+  }
 }

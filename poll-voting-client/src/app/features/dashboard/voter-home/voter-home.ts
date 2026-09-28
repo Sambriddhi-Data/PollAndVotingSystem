@@ -1,23 +1,26 @@
-import { Component, inject } from '@angular/core';
-import { Auth } from '../../../core/services/auth';
+import { Component, inject, signal, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { DatePipe } from '@angular/common';
+import { ElectionService } from '../../../core/services/election';
 import { CurrentUser } from '../../../core/services/current-user';
-import { Router, RouterLink } from '@angular/router';
+import { Election } from '../../../core/models/election.model';
 
 @Component({
-  imports: [RouterLink],
   selector: 'app-voter-home',
-  styleUrl: './voter-home.scss',
+  imports: [RouterLink, DatePipe],
   templateUrl: './voter-home.html',
+  styleUrl: './voter-home.scss'
 })
-export class VoterHome {
-   currentUser = inject(CurrentUser);
-  private authService = inject(Auth);
-  private router = inject(Router);
+export class VoterHome implements OnInit {
+  private electionService = inject(ElectionService);
+  currentUser = inject(CurrentUser);
 
   auth = this.currentUser.auth;
+  elections = signal<Election[]>([]);
+  isLoading = signal(true);
 
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);
+  async ngOnInit(): Promise<void> {
+    this.elections.set(await this.electionService.getAll());
+    this.isLoading.set(false);
   }
 }

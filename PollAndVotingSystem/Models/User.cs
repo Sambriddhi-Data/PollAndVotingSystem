@@ -17,8 +17,10 @@
         
         public int TokenVersion { get; set; } = 1;
         public Department? Department { get; set; }
-
         public DateTime DateJoined { get; set; }
+        
+        public string? OtpCode { get; set; }
+        public DateTime? OtpExpiresAt { get; set; }
 
         public ICollection<Vote> Votes { get; set; } = new List<Vote>();
         public ICollection<Delegation> DelegationsGiven { get; set; } = new List<Delegation>();

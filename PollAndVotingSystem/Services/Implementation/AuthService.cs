@@ -11,11 +11,19 @@ public class AuthService : IAuthService
         private readonly IUserRepository _userRepository;
         private readonly IJwtTokenService _jwtTokenService;
         private readonly PasswordHasher<User> _passwordHasher = new();
-
-        public AuthService(IUserRepository userRepository, IJwtTokenService jwtTokenService)
+        private readonly ILogger<AuthService> _logger;
+        private readonly IWebHostEnvironment _env;
+        
+        public AuthService(
+            IUserRepository userRepository,
+            IJwtTokenService jwtTokenService,
+            ILogger<AuthService> logger,
+            IWebHostEnvironment env)
         {
             _userRepository = userRepository;
             _jwtTokenService = jwtTokenService;
+            _logger = logger;
+            _env = env;
         }
 
         public async Task<AuthResponseDto> RegisterAsync(RegisterRequestDto request)
@@ -87,6 +95,42 @@ public class AuthService : IAuthService
 
             user.PasswordHash = _passwordHasher.HashPassword(user, request.NewPassword);
             user.TokenVersion += 1; // invalidates all existing tokens for this user
+
+            await _userRepository.SaveChangesAsync();
+        }
+        
+        public async Task<string?> ForgotPasswordAsync(string email)
+        {
+            var user = await _userRepository.GetByEmailAsync(email);
+
+            // Don't reveal whether the email exists — always return success-shaped response
+            if (user == null) return null;
+
+            var otp = Random.Shared.Next(100000, 999999).ToString();
+            user.OtpCode = otp;
+            user.OtpExpiresAt = DateTime.UtcNow.AddMinutes(10);
+
+            await _userRepository.SaveChangesAsync();
+
+            _logger.LogInformation("Password reset OTP for {Email}: {Otp} (expires in 10 min)", email, otp);
+
+            // Dev-only convenience: return the OTP directly so you can test without an email/SMS provider.
+            // Remove this return value once a real mail service (e.g. Mailtrap, SendGrid) is wired up.
+            return _env.IsDevelopment() ? otp : null;
+        }
+
+        public async Task ResetPasswordAsync(ResetPasswordRequestDto request)
+        {
+            var user = await _userRepository.GetByEmailAsync(request.Email)
+                       ?? throw new InvalidOperationException("Invalid email or OTP.");
+
+            if (user.OtpCode != request.Otp || user.OtpExpiresAt == null || user.OtpExpiresAt < DateTime.UtcNow)
+                throw new InvalidOperationException("Invalid or expired OTP.");
+
+            user.PasswordHash = _passwordHasher.HashPassword(user, request.NewPassword);
+            user.OtpCode = null;
+            user.OtpExpiresAt = null;
+            user.TokenVersion += 1; // invalidate any existing sessions
 
             await _userRepository.SaveChangesAsync();
         }

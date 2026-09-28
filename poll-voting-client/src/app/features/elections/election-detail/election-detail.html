@@ -17,8 +17,11 @@
 
     <!-- ADMIN: Draft stage -->
     @if (currentUser.isAdmin() && e.status === 'Draft') {
-      <section>
-        <h2>Pending Applications</h2>
+      <section class="section-block">
+        <div class="section-header">
+          <h2>Pending Applications</h2>
+          <a [routerLink]="['/elections', e.id, 'edit']" class="btn-outline">Edit Election</a>
+        </div>
         @if (pendingApplications().length === 0) {
           <p>No applications yet.</p>
         }
@@ -28,7 +31,7 @@
             <p>{{ app.statement }}</p>
             @if (app.status === 'Pending') {
               <button (click)="onApprove(app.id)">Approve</button>
-              <button (click)="onReject(app.id)">Reject</button>
+              <button class="btn-danger" (click)="onReject(app.id)">Reject</button>
             }
           </div>
         }
@@ -38,17 +41,19 @@
 
     <!-- VOTER: Draft stage -->
     @if (!currentUser.isAdmin() && e.status === 'Draft') {
-      <section>
+            <section class="section-block">
         <h2>Apply as a Candidate</h2>
-        <textarea [value]="applyStatement()" (input)="applyStatement.set($any($event.target).value)"
-                   placeholder="Your candidate statement..."></textarea>
-        <button (click)="onApply()">Submit Application</button>
+        <div class="field-row-column">
+          <textarea [value]="applyStatement()" (input)="applyStatement.set($any($event.target).value)"
+                     placeholder="Your candidate statement..."></textarea>
+          <button (click)="onApply()">Submit Application</button>
+        </div>
       </section>
     }
 
     <!-- Active: Candidates + Voting/Delegation -->
     @if (e.status === 'Active') {
-      <section>
+      <section class="section-block">
         <h2>Candidates</h2>
         @for (c of candidates(); track c.id) {
           <div class="card">
@@ -59,7 +64,7 @@
       </section>
 
       @if (currentUser.isAdmin()) {
-        <section>
+        <section class="section-block">
           <h2>Live Tally</h2>
           @if (results(); as r) {
             <p>Total votes: {{ r.totalVotesCast }}</p>
@@ -80,29 +85,33 @@
           } @else if (delegationStatus()?.hasDelegated) {
             <div class="card">
               <p>You delegated your vote to {{ delegationStatus()?.delegateName }}.</p>
-              <button (click)="onRevokeDelegation()">Revoke Delegation</button>
+              <button class="btn-danger" (click)="onRevokeDelegation()">Revoke Delegation</button>
             </div>
           } @else {
-            <section>
+            <section class="section-block">
               <h2>Cast Your Vote</h2>
-              <select (change)="selectedCandidateId.set($any($event.target).value ? +$any($event.target).value : null)">
-                <option [value]="null">Select a candidate</option>
-                @for (c of candidates(); track c.id) {
-                  <option [value]="c.id">{{ c.userName }}</option>
-                }
-              </select>
-              <button (click)="onVote()">Vote</button>
+              <div class="field-row">
+                <select (change)="selectedCandidateId.set($any($event.target).value ? +$any($event.target).value : null)">
+                  <option [value]="null">Select a candidate</option>
+                  @for (c of candidates(); track c.id) {
+                    <option [value]="c.id">{{ c.userName }}</option>
+                  }
+                </select>
+                <button (click)="onVote()">Vote</button>
+              </div>
             </section>
 
-            <section>
+            <section class="section-block">
               <h2>Or Delegate Your Vote</h2>
-              <select (change)="selectedDelegateId.set($any($event.target).value ? +$any($event.target).value : null)">
-                <option [value]="null">Select someone to delegate to</option>
-                @for (c of candidates(); track c.id) {
-                  <option [value]="c.userId">{{ c.userName }}</option>
-                }
-              </select>
-              <button (click)="onDelegate()">Delegate</button>
+              <div class="field-row">
+                <select (change)="selectedDelegateId.set($any($event.target).value ? +$any($event.target).value : null)">
+                  <option [value]="null">Select a fellow voter to delegate to</option>
+                  @for (v of eligibleVoters(); track v.userId) {
+                    <option [value]="v.userId">{{ v.name }}</option>
+                  }
+                </select>
+                <button class="btn-secondary" (click)="onDelegate()">Delegate</button>
+              </div>
             </section>
           }
         }
@@ -111,7 +120,7 @@
 
     <!-- Closed: Results -->
     @if (e.status === 'Closed') {
-      <section>
+      <section class="section-block">
         <h2>Final Results</h2>
         @if (results(); as r) {
           <p>Total votes: {{ r.totalVotesCast }}</p>

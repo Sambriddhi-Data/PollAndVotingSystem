@@ -13,19 +13,26 @@ namespace PollAndVotingSystem.Services
         private readonly IAuditLogService _auditLogService;
         private readonly INotificationService _notificationService;
         private readonly ICurrentUserService _currentUser;
+        private readonly ICandidateApplicationRepository _candidateApplicationRepository;
+        private readonly IUserRepository _userRepository;
 
         public ElectionService(
             IElectionRepository electionRepository,
             IDepartmentRepository departmentRepository,
             ICurrentUserService currentUser,
             IAuditLogService auditLogService,
-            INotificationService notificationService)
+            INotificationService notificationService,
+        ICandidateApplicationRepository candidateApplicationRepository,
+            IUserRepository userRepository)
+
         {
             _electionRepository = electionRepository;
             _departmentRepository = departmentRepository;
             _currentUser = currentUser;
             _auditLogService = auditLogService;
             _notificationService = notificationService;
+            _candidateApplicationRepository = candidateApplicationRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<List<ElectionResponseDto>> GetElectionsForCurrentUserAsync()
@@ -46,6 +53,20 @@ namespace PollAndVotingSystem.Services
             return MapToDto(election);
         }
 
+        public async Task<List<EligibleVoterDto>> GetEligibleVotersAsync(int electionId)
+        {
+            var election = await _electionRepository.GetByIdAsync(electionId)
+                           ?? throw new KeyNotFoundException("Election not found.");
+
+            var departmentUsers = await _userRepository.GetByDepartmentAsync(election.DepartmentId);
+
+            return departmentUsers
+                .Where(u => u.Id != _currentUser.UserId)
+                .Where(u => (DateTime.UtcNow - u.DateJoined).TotalDays / 365.25 >= election.MinTenureYears)
+                .Select(u => new EligibleVoterDto { UserId = u.Id, Name = u.Name })
+                .ToList();
+        }
+        
         public async Task<ElectionResponseDto> CreateAsync(ElectionRequestDto request)
         {
             if (request.EndDate <= request.StartDate)
@@ -131,10 +152,15 @@ namespace PollAndVotingSystem.Services
         {
             var election = await _electionRepository.GetByIdWithDepartmentAsync(id)
                 ?? throw new KeyNotFoundException("Election not found.");
-
+            var candidates = await _candidateApplicationRepository.GetCandidatesByElectionAsync(id);
+            if (candidates.Count == 0)
+                throw new InvalidOperationException("Cannot activate an election with no approved candidates.");
             if (election.Status != ElectionStatus.Draft)
                 throw new InvalidOperationException("Only Draft elections can be activated.");
 
+            if (election.EndDate <= DateTime.UtcNow)
+                throw new InvalidOperationException("Cannot activate an election whose end date has already passed.");
+            
             election.Status = ElectionStatus.Active;
             election.IsLocked = true; // Rule: once Active, candidates/eligibility become locked
 

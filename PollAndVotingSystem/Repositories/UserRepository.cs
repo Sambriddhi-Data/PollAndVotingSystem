@@ -31,6 +31,12 @@ public class UserRepository : IUserRepository
                 .AnyAsync(u => u.Email.ToLower() == email.ToLower());
         }
 
+        public async Task<List<User>> GetByDepartmentAsync(int departmentId)
+        {
+            return await _context.Users
+                .Where(u => u.DepartmentId == departmentId)
+                .ToListAsync();
+        }
         public async Task<bool> DepartmentExistsAsync(int departmentId)
         {
             return await _context.Departments.AnyAsync(d => d.Id == departmentId);

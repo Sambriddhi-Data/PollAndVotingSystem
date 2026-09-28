@@ -44,6 +44,7 @@ namespace PollAndVotingSystem.Controllers;
                 return Unauthorized(new { message = ex.Message });
             }
         }
+        
         [HttpPost("change-password")]
         [Authorize]
         public async Task<IActionResult> ChangePassword(ChangePasswordRequestDto request)
@@ -51,6 +52,26 @@ namespace PollAndVotingSystem.Controllers;
             var userId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
             await _authService.ChangePasswordAsync(userId, request);
             return Ok(new { message = "Password changed. Please log in again." });
+        }
+        
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordRequestDto request)
+        {
+            var devOtp = await _authService.ForgotPasswordAsync(request.Email);
+
+            // Always return 200 regardless of whether the email existed (avoid leaking account existence)
+            return Ok(new
+            {
+                message = "If that email is registered, a reset code has been sent.",
+                devOtp // will be null outside Development
+            });
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordRequestDto request)
+        {
+            await _authService.ResetPasswordAsync(request);
+            return Ok(new { message = "Password reset successfully. Please log in." });
         }
     
 }

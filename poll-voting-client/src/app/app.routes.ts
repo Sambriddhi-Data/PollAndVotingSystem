@@ -42,5 +42,29 @@ export const routes: Routes = [
     loadComponent: () => import('./features/elections/election-detail/election-detail').then(m => m.ElectionDetail),
     canActivate: [authGuard]
   },
-  { path: '**', redirectTo: 'login' }
+    {
+    path: 'forgot-password',
+    loadComponent: () => import('./features/auth/forgot-password/forgot-password').then(m => m.ForgotPassword)
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () => import('./features/auth/reset-password/reset-password').then(m => m.ResetPassword)
+  },
+  {
+    path: 'account/change-password',
+    loadComponent: () => import('./features/account/change-password/change-password').then(m => m.ChangePassword),
+    canActivate: [authGuard]
+  },
+  {
+    path: 'admin/audit-logs',
+    loadComponent: () => import('./features/admin/audit-log-page/audit-log-page').then(m => m.AuditLogPage),
+    canActivate: [authGuard, adminGuard]
+  },
+  {
+    path: 'notifications',
+    loadComponent: () => import('./features/notifications/notifications-page/notifications-page').then(m => m.NotificationsPage),
+    canActivate: [authGuard]
+  },
+  { path: '**', redirectTo: 'login' },
+
 ];
